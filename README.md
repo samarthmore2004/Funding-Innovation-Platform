@@ -130,3 +130,5 @@ See the end of [docs/CAPSTONE_REPORT.md](docs/CAPSTONE_REPORT.md#9-limitations) 
 [docs/REQUIREMENTS_CHECKLIST.md](docs/REQUIREMENTS_CHECKLIST.md). In short: heuristic scores, illustrative patent
 data unless real data is imported, U.S.-only verified funding, small keyless OpenAlex quota, single-instance
 scheduler/metrics, Docker images not built on the development machine.
+
+Live Link : https://funding-innovation-platform-1.onrender.com/
