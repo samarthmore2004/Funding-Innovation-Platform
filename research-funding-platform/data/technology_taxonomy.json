@@ -1,0 +1,140 @@
+{
+  "description": "Technology-area taxonomy shared by profiles, funding, publications, patents and innovation projects. CPC prefixes are real Cooperative Patent Classification groups used for classification hints; OpenAlex queries are used to build the publication-trend snapshot.",
+  "areas": [
+    {
+      "key": "ai_ml",
+      "name": "Artificial Intelligence & Machine Learning",
+      "description": "Learning algorithms, neural networks, foundation models and decision intelligence.",
+      "openalex_query": "\"machine learning\" OR \"deep learning\"",
+      "grants_keyword": "artificial intelligence",
+      "keywords": ["machine learning", "deep learning", "neural network", "artificial intelligence", "reinforcement learning", "foundation model", "federated learning", "explainable ai", "predictive model", "data science"],
+      "cpc_prefixes": ["G06N"]
+    },
+    {
+      "key": "nlp",
+      "name": "Natural Language Processing",
+      "description": "Language models, text mining, speech and conversational systems.",
+      "openalex_query": "\"natural language processing\" OR \"large language model\"",
+      "grants_keyword": "natural language processing",
+      "keywords": ["natural language processing", "language model", "large language model", "text mining", "speech recognition", "machine translation", "sentiment analysis", "chatbot", "information extraction", "question answering"],
+      "cpc_prefixes": ["G06F 40", "G10L 15"]
+    },
+    {
+      "key": "computer_vision",
+      "name": "Computer Vision",
+      "description": "Image and video understanding, detection, segmentation and 3D perception.",
+      "openalex_query": "\"computer vision\" OR \"image segmentation\"",
+      "grants_keyword": "computer vision",
+      "keywords": ["computer vision", "image recognition", "object detection", "image segmentation", "video analytics", "medical imaging", "3d reconstruction", "remote sensing imagery", "face recognition", "visual inspection"],
+      "cpc_prefixes": ["G06V", "G06T 7"]
+    },
+    {
+      "key": "quantum",
+      "name": "Quantum Computing & Technologies",
+      "description": "Quantum computing hardware and algorithms, quantum sensing and communication.",
+      "openalex_query": "\"quantum computing\" OR \"quantum computer\"",
+      "grants_keyword": "quantum",
+      "keywords": ["quantum computing", "qubit", "quantum algorithm", "quantum error correction", "quantum sensing", "quantum communication", "quantum key distribution", "superconducting qubit", "quantum simulation", "post-quantum cryptography"],
+      "cpc_prefixes": ["G06N 10", "H04L 9/08", "B82Y 10"]
+    },
+    {
+      "key": "clean_energy",
+      "name": "Clean Energy & Energy Storage",
+      "description": "Renewable generation, batteries, hydrogen, grid integration and efficiency.",
+      "openalex_query": "\"renewable energy\" OR \"energy storage\"",
+      "grants_keyword": "renewable energy",
+      "keywords": ["renewable energy", "solar", "photovoltaic", "wind energy", "battery", "energy storage", "hydrogen", "fuel cell", "smart grid", "energy efficiency"],
+      "cpc_prefixes": ["H01M", "H02J", "H02S", "Y02E"]
+    },
+    {
+      "key": "biotech",
+      "name": "Biotechnology & Genomics",
+      "description": "Gene editing, synthetic biology, genomics, biologics and bioprocessing.",
+      "openalex_query": "\"CRISPR\" OR \"genome editing\" OR \"synthetic biology\"",
+      "grants_keyword": "biotechnology",
+      "keywords": ["biotechnology", "genomics", "crispr", "gene editing", "synthetic biology", "protein engineering", "bioprocess", "sequencing", "cell therapy", "biomarker"],
+      "cpc_prefixes": ["C12N", "C12Q", "C07K"]
+    },
+    {
+      "key": "digital_health",
+      "name": "Digital Health & Medical Devices",
+      "description": "Telemedicine, wearables, clinical decision support and medical devices.",
+      "openalex_query": "\"digital health\" OR \"telemedicine\" OR \"wearable sensor\"",
+      "grants_keyword": "digital health",
+      "keywords": ["digital health", "telemedicine", "wearable", "medical device", "clinical decision support", "electronic health record", "remote patient monitoring", "diagnostics", "health informatics", "mobile health"],
+      "cpc_prefixes": ["G16H", "A61B 5"]
+    },
+    {
+      "key": "robotics",
+      "name": "Robotics & Autonomous Systems",
+      "description": "Industrial and service robots, drones, autonomous vehicles and control.",
+      "openalex_query": "\"robotics\" OR \"autonomous vehicle\" OR \"unmanned aerial vehicle\"",
+      "grants_keyword": "robotics",
+      "keywords": ["robotics", "robot", "autonomous vehicle", "drone", "unmanned aerial vehicle", "motion planning", "manipulation", "swarm", "human-robot interaction", "control systems"],
+      "cpc_prefixes": ["B25J", "G05D 1", "B64U"]
+    },
+    {
+      "key": "iot_edge",
+      "name": "IoT & Edge Computing",
+      "description": "Connected devices, sensor networks, edge and fog computing, 5G/6G.",
+      "openalex_query": "\"internet of things\" OR \"edge computing\"",
+      "grants_keyword": "internet of things",
+      "keywords": ["internet of things", "iot", "edge computing", "sensor network", "embedded system", "5g", "wireless", "fog computing", "smart city", "digital twin"],
+      "cpc_prefixes": ["H04L 67/12", "H04W 4/70", "G16Y"]
+    },
+    {
+      "key": "cybersecurity",
+      "name": "Cybersecurity & Privacy",
+      "description": "Threat detection, cryptography, privacy-preserving computation and secure systems.",
+      "openalex_query": "\"cybersecurity\" OR \"intrusion detection\" OR \"privacy-preserving\"",
+      "grants_keyword": "cybersecurity",
+      "keywords": ["cybersecurity", "intrusion detection", "malware", "cryptography", "privacy", "differential privacy", "zero trust", "authentication", "threat intelligence", "secure computation"],
+      "cpc_prefixes": ["H04L 9", "H04L 63", "G06F 21"]
+    },
+    {
+      "key": "advanced_materials",
+      "name": "Advanced Materials & Nanotechnology",
+      "description": "Nanomaterials, 2D materials, composites, metamaterials and coatings.",
+      "openalex_query": "\"nanomaterials\" OR \"metamaterials\" OR \"graphene\"",
+      "grants_keyword": "advanced materials",
+      "keywords": ["nanomaterials", "nanotechnology", "graphene", "metamaterial", "composite", "polymer", "thin film", "coating", "2d materials", "materials discovery"],
+      "cpc_prefixes": ["B82Y", "C01B 32", "C08"]
+    },
+    {
+      "key": "climate_tech",
+      "name": "Climate & Environmental Technology",
+      "description": "Carbon capture, climate modelling, water, pollution and circular economy.",
+      "openalex_query": "\"carbon capture\" OR \"climate adaptation\" OR \"circular economy\"",
+      "grants_keyword": "climate",
+      "keywords": ["carbon capture", "climate change", "climate adaptation", "emissions", "water treatment", "air quality", "circular economy", "recycling", "sustainability", "environmental monitoring"],
+      "cpc_prefixes": ["B01D 53", "Y02C", "Y02W", "C02F"]
+    },
+    {
+      "key": "semiconductors",
+      "name": "Semiconductors & Photonics",
+      "description": "Chip design, devices, fabrication, photonic integrated circuits and lasers.",
+      "openalex_query": "\"semiconductor device\" OR \"integrated photonics\" OR \"chip design\"",
+      "grants_keyword": "semiconductor",
+      "keywords": ["semiconductor", "chip", "transistor", "photonics", "integrated circuit", "lithography", "laser", "optoelectronics", "microelectronics", "packaging"],
+      "cpc_prefixes": ["H01L", "H10", "G02B 6"]
+    },
+    {
+      "key": "agritech",
+      "name": "Agritech & Food Systems",
+      "description": "Precision agriculture, crop science, food technology and supply chains.",
+      "openalex_query": "\"precision agriculture\" OR \"smart farming\" OR \"food security\"",
+      "grants_keyword": "agriculture",
+      "keywords": ["precision agriculture", "smart farming", "crop", "soil", "food security", "food technology", "irrigation", "livestock", "agricultural robotics", "plant phenotyping"],
+      "cpc_prefixes": ["A01B 79", "A01G", "A23"]
+    },
+    {
+      "key": "blockchain_fintech",
+      "name": "Blockchain & Fintech",
+      "description": "Distributed ledgers, digital payments, decentralised finance and regtech.",
+      "openalex_query": "\"blockchain\" OR \"financial technology\" OR \"digital payment\"",
+      "grants_keyword": "blockchain",
+      "keywords": ["blockchain", "distributed ledger", "smart contract", "fintech", "digital payment", "cryptocurrency", "decentralized finance", "tokenization", "regtech", "digital identity"],
+      "cpc_prefixes": ["G06Q 20", "G06Q 40", "H04L 9/50"]
+    }
+  ]
+}

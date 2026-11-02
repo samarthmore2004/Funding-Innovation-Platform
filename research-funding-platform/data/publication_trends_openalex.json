@@ -1,0 +1,898 @@
+{
+ "source": "OpenAlex works API, group_by=publication_year on title_and_abstract.search",
+ "license": "CC0 (OpenAlex data)",
+ "retrieved_at": "2026-10-27T09:24:34.003000+00:00",
+ "year_range": [
+  2012,
+  2025
+ ],
+ "queries": {
+  "ai_ml": "\"machine learning\" OR \"deep learning\"",
+  "nlp": "\"natural language processing\" OR \"large language model\"",
+  "computer_vision": "\"computer vision\" OR \"image segmentation\"",
+  "quantum": "\"quantum computing\" OR \"quantum computer\"",
+  "clean_energy": "\"renewable energy\" OR \"energy storage\"",
+  "biotech": "\"CRISPR\" OR \"genome editing\" OR \"synthetic biology\"",
+  "digital_health": "\"digital health\" OR \"telemedicine\" OR \"wearable sensor\"",
+  "robotics": "\"robotics\" OR \"autonomous vehicle\" OR \"unmanned aerial vehicle\"",
+  "iot_edge": "\"internet of things\" OR \"edge computing\"",
+  "cybersecurity": "\"cybersecurity\" OR \"intrusion detection\" OR \"privacy-preserving\"",
+  "advanced_materials": "\"nanomaterials\" OR \"metamaterials\" OR \"graphene\"",
+  "climate_tech": "\"carbon capture\" OR \"climate adaptation\" OR \"circular economy\"",
+  "semiconductors": "\"semiconductor device\" OR \"integrated photonics\" OR \"chip design\"",
+  "agritech": "\"precision agriculture\" OR \"smart farming\" OR \"food security\"",
+  "blockchain_fintech": "\"blockchain\" OR \"financial technology\" OR \"digital payment\""
+ },
+ "series": {
+  "ai_ml": [
+   {
+    "year": 2012,
+    "count": 7939
+   },
+   {
+    "year": 2013,
+    "count": 9238
+   },
+   {
+    "year": 2014,
+    "count": 11368
+   },
+   {
+    "year": 2015,
+    "count": 14815
+   },
+   {
+    "year": 2016,
+    "count": 20973
+   },
+   {
+    "year": 2017,
+    "count": 34077
+   },
+   {
+    "year": 2018,
+    "count": 57560
+   },
+   {
+    "year": 2019,
+    "count": 89390
+   },
+   {
+    "year": 2020,
+    "count": 122324
+   },
+   {
+    "year": 2021,
+    "count": 157223
+   },
+   {
+    "year": 2022,
+    "count": 187195
+   },
+   {
+    "year": 2023,
+    "count": 237913
+   },
+   {
+    "year": 2024,
+    "count": 305932
+   },
+   {
+    "year": 2025,
+    "count": 411617
+   }
+  ],
+  "nlp": [
+   {
+    "year": 2012,
+    "count": 1618
+   },
+   {
+    "year": 2013,
+    "count": 1773
+   },
+   {
+    "year": 2014,
+    "count": 2099
+   },
+   {
+    "year": 2015,
+    "count": 2508
+   },
+   {
+    "year": 2016,
+    "count": 2656
+   },
+   {
+    "year": 2017,
+    "count": 3294
+   },
+   {
+    "year": 2018,
+    "count": 4721
+   },
+   {
+    "year": 2019,
+    "count": 6856
+   },
+   {
+    "year": 2020,
+    "count": 8178
+   },
+   {
+    "year": 2021,
+    "count": 10736
+   },
+   {
+    "year": 2022,
+    "count": 12045
+   },
+   {
+    "year": 2023,
+    "count": 25204
+   },
+   {
+    "year": 2024,
+    "count": 56282
+   },
+   {
+    "year": 2025,
+    "count": 104007
+   }
+  ],
+  "computer_vision": [
+   {
+    "year": 2012,
+    "count": 6189
+   },
+   {
+    "year": 2013,
+    "count": 6924
+   },
+   {
+    "year": 2014,
+    "count": 7287
+   },
+   {
+    "year": 2015,
+    "count": 7909
+   },
+   {
+    "year": 2016,
+    "count": 8246
+   },
+   {
+    "year": 2017,
+    "count": 9396
+   },
+   {
+    "year": 2018,
+    "count": 10842
+   },
+   {
+    "year": 2019,
+    "count": 13557
+   },
+   {
+    "year": 2020,
+    "count": 15209
+   },
+   {
+    "year": 2021,
+    "count": 18397
+   },
+   {
+    "year": 2022,
+    "count": 20805
+   },
+   {
+    "year": 2023,
+    "count": 25782
+   },
+   {
+    "year": 2024,
+    "count": 30697
+   },
+   {
+    "year": 2025,
+    "count": 35016
+   }
+  ],
+  "quantum": [
+   {
+    "year": 2012,
+    "count": 1003
+   },
+   {
+    "year": 2013,
+    "count": 1062
+   },
+   {
+    "year": 2014,
+    "count": 1087
+   },
+   {
+    "year": 2015,
+    "count": 1133
+   },
+   {
+    "year": 2016,
+    "count": 1242
+   },
+   {
+    "year": 2017,
+    "count": 1522
+   },
+   {
+    "year": 2018,
+    "count": 2054
+   },
+   {
+    "year": 2019,
+    "count": 2612
+   },
+   {
+    "year": 2020,
+    "count": 3393
+   },
+   {
+    "year": 2021,
+    "count": 4356
+   },
+   {
+    "year": 2022,
+    "count": 4739
+   },
+   {
+    "year": 2023,
+    "count": 6359
+   },
+   {
+    "year": 2024,
+    "count": 8987
+   },
+   {
+    "year": 2025,
+    "count": 13803
+   }
+  ],
+  "clean_energy": [
+   {
+    "year": 2012,
+    "count": 14519
+   },
+   {
+    "year": 2013,
+    "count": 17053
+   },
+   {
+    "year": 2014,
+    "count": 20753
+   },
+   {
+    "year": 2015,
+    "count": 22815
+   },
+   {
+    "year": 2016,
+    "count": 25572
+   },
+   {
+    "year": 2017,
+    "count": 29659
+   },
+   {
+    "year": 2018,
+    "count": 32910
+   },
+   {
+    "year": 2019,
+    "count": 37911
+   },
+   {
+    "year": 2020,
+    "count": 42259
+   },
+   {
+    "year": 2021,
+    "count": 46796
+   },
+   {
+    "year": 2022,
+    "count": 52683
+   },
+   {
+    "year": 2023,
+    "count": 63939
+   },
+   {
+    "year": 2024,
+    "count": 80952
+   },
+   {
+    "year": 2025,
+    "count": 102231
+   }
+  ],
+  "biotech": [
+   {
+    "year": 2012,
+    "count": 1118
+   },
+   {
+    "year": 2013,
+    "count": 1706
+   },
+   {
+    "year": 2014,
+    "count": 2651
+   },
+   {
+    "year": 2015,
+    "count": 3972
+   },
+   {
+    "year": 2016,
+    "count": 6243
+   },
+   {
+    "year": 2017,
+    "count": 7869
+   },
+   {
+    "year": 2018,
+    "count": 10125
+   },
+   {
+    "year": 2019,
+    "count": 11920
+   },
+   {
+    "year": 2020,
+    "count": 12780
+   },
+   {
+    "year": 2021,
+    "count": 13172
+   },
+   {
+    "year": 2022,
+    "count": 14348
+   },
+   {
+    "year": 2023,
+    "count": 16948
+   },
+   {
+    "year": 2024,
+    "count": 17886
+   },
+   {
+    "year": 2025,
+    "count": 23318
+   }
+  ],
+  "digital_health": [
+   {
+    "year": 2012,
+    "count": 1535
+   },
+   {
+    "year": 2013,
+    "count": 1865
+   },
+   {
+    "year": 2014,
+    "count": 2164
+   },
+   {
+    "year": 2015,
+    "count": 2679
+   },
+   {
+    "year": 2016,
+    "count": 2999
+   },
+   {
+    "year": 2017,
+    "count": 3469
+   },
+   {
+    "year": 2018,
+    "count": 4147
+   },
+   {
+    "year": 2019,
+    "count": 5237
+   },
+   {
+    "year": 2020,
+    "count": 9363
+   },
+   {
+    "year": 2021,
+    "count": 11196
+   },
+   {
+    "year": 2022,
+    "count": 11478
+   },
+   {
+    "year": 2023,
+    "count": 12004
+   },
+   {
+    "year": 2024,
+    "count": 14991
+   },
+   {
+    "year": 2025,
+    "count": 22181
+   }
+  ],
+  "robotics": [
+   {
+    "year": 2012,
+    "count": 31626
+   },
+   {
+    "year": 2013,
+    "count": 34301
+   },
+   {
+    "year": 2014,
+    "count": 35354
+   },
+   {
+    "year": 2015,
+    "count": 37710
+   },
+   {
+    "year": 2016,
+    "count": 40994
+   },
+   {
+    "year": 2017,
+    "count": 46530
+   },
+   {
+    "year": 2018,
+    "count": 54710
+   },
+   {
+    "year": 2019,
+    "count": 62009
+   },
+   {
+    "year": 2020,
+    "count": 66065
+   },
+   {
+    "year": 2021,
+    "count": 69759
+   },
+   {
+    "year": 2022,
+    "count": 73138
+   },
+   {
+    "year": 2023,
+    "count": 83464
+   },
+   {
+    "year": 2024,
+    "count": 98832
+   },
+   {
+    "year": 2025,
+    "count": 119307
+   }
+  ],
+  "iot_edge": [
+   {
+    "year": 2012,
+    "count": 2138
+   },
+   {
+    "year": 2013,
+    "count": 2751
+   },
+   {
+    "year": 2014,
+    "count": 3656
+   },
+   {
+    "year": 2015,
+    "count": 5821
+   },
+   {
+    "year": 2016,
+    "count": 9289
+   },
+   {
+    "year": 2017,
+    "count": 14113
+   },
+   {
+    "year": 2018,
+    "count": 19993
+   },
+   {
+    "year": 2019,
+    "count": 25349
+   },
+   {
+    "year": 2020,
+    "count": 29187
+   },
+   {
+    "year": 2021,
+    "count": 32918
+   },
+   {
+    "year": 2022,
+    "count": 34962
+   },
+   {
+    "year": 2023,
+    "count": 38862
+   },
+   {
+    "year": 2024,
+    "count": 45953
+   },
+   {
+    "year": 2025,
+    "count": 55393
+   }
+  ],
+  "cybersecurity": [
+   {
+    "year": 2012,
+    "count": 3396
+   },
+   {
+    "year": 2013,
+    "count": 3742
+   },
+   {
+    "year": 2014,
+    "count": 4368
+   },
+   {
+    "year": 2015,
+    "count": 4552
+   },
+   {
+    "year": 2016,
+    "count": 5037
+   },
+   {
+    "year": 2017,
+    "count": 5833
+   },
+   {
+    "year": 2018,
+    "count": 7281
+   },
+   {
+    "year": 2019,
+    "count": 8893
+   },
+   {
+    "year": 2020,
+    "count": 11076
+   },
+   {
+    "year": 2021,
+    "count": 12685
+   },
+   {
+    "year": 2022,
+    "count": 14049
+   },
+   {
+    "year": 2023,
+    "count": 18489
+   },
+   {
+    "year": 2024,
+    "count": 29161
+   },
+   {
+    "year": 2025,
+    "count": 51386
+   }
+  ],
+  "advanced_materials": [
+   {
+    "year": 2012,
+    "count": 19857
+   },
+   {
+    "year": 2013,
+    "count": 24411
+   },
+   {
+    "year": 2014,
+    "count": 28461
+   },
+   {
+    "year": 2015,
+    "count": 31766
+   },
+   {
+    "year": 2016,
+    "count": 35489
+   },
+   {
+    "year": 2017,
+    "count": 37252
+   },
+   {
+    "year": 2018,
+    "count": 40141
+   },
+   {
+    "year": 2019,
+    "count": 43285
+   },
+   {
+    "year": 2020,
+    "count": 44363
+   },
+   {
+    "year": 2021,
+    "count": 46385
+   },
+   {
+    "year": 2022,
+    "count": 47899
+   },
+   {
+    "year": 2023,
+    "count": 48406
+   },
+   {
+    "year": 2024,
+    "count": 53137
+   },
+   {
+    "year": 2025,
+    "count": 57611
+   }
+  ],
+  "climate_tech": [
+   {
+    "year": 2012,
+    "count": 1735
+   },
+   {
+    "year": 2013,
+    "count": 1985
+   },
+   {
+    "year": 2014,
+    "count": 2138
+   },
+   {
+    "year": 2015,
+    "count": 2272
+   },
+   {
+    "year": 2016,
+    "count": 2792
+   },
+   {
+    "year": 2017,
+    "count": 3675
+   },
+   {
+    "year": 2018,
+    "count": 4466
+   },
+   {
+    "year": 2019,
+    "count": 5960
+   },
+   {
+    "year": 2020,
+    "count": 7660
+   },
+   {
+    "year": 2021,
+    "count": 10003
+   },
+   {
+    "year": 2022,
+    "count": 12293
+   },
+   {
+    "year": 2023,
+    "count": 15196
+   },
+   {
+    "year": 2024,
+    "count": 21194
+   },
+   {
+    "year": 2025,
+    "count": 36190
+   }
+  ],
+  "semiconductors": [
+   {
+    "year": 2012,
+    "count": 1536
+   },
+   {
+    "year": 2013,
+    "count": 1726
+   },
+   {
+    "year": 2014,
+    "count": 1828
+   },
+   {
+    "year": 2015,
+    "count": 2108
+   },
+   {
+    "year": 2016,
+    "count": 2192
+   },
+   {
+    "year": 2017,
+    "count": 2262
+   },
+   {
+    "year": 2018,
+    "count": 2362
+   },
+   {
+    "year": 2019,
+    "count": 2477
+   },
+   {
+    "year": 2020,
+    "count": 2613
+   },
+   {
+    "year": 2021,
+    "count": 2567
+   },
+   {
+    "year": 2022,
+    "count": 2688
+   },
+   {
+    "year": 2023,
+    "count": 3347
+   },
+   {
+    "year": 2024,
+    "count": 3727
+   },
+   {
+    "year": 2025,
+    "count": 4414
+   }
+  ],
+  "agritech": [
+   {
+    "year": 2012,
+    "count": 5096
+   },
+   {
+    "year": 2013,
+    "count": 5926
+   },
+   {
+    "year": 2014,
+    "count": 6761
+   },
+   {
+    "year": 2015,
+    "count": 7125
+   },
+   {
+    "year": 2016,
+    "count": 7630
+   },
+   {
+    "year": 2017,
+    "count": 8402
+   },
+   {
+    "year": 2018,
+    "count": 9647
+   },
+   {
+    "year": 2019,
+    "count": 10480
+   },
+   {
+    "year": 2020,
+    "count": 12695
+   },
+   {
+    "year": 2021,
+    "count": 14863
+   },
+   {
+    "year": 2022,
+    "count": 15921
+   },
+   {
+    "year": 2023,
+    "count": 20026
+   },
+   {
+    "year": 2024,
+    "count": 27730
+   },
+   {
+    "year": 2025,
+    "count": 42216
+   }
+  ],
+  "blockchain_fintech": [
+   {
+    "year": 2012,
+    "count": 73
+   },
+   {
+    "year": 2013,
+    "count": 62
+   },
+   {
+    "year": 2014,
+    "count": 105
+   },
+   {
+    "year": 2015,
+    "count": 247
+   },
+   {
+    "year": 2016,
+    "count": 876
+   },
+   {
+    "year": 2017,
+    "count": 2837
+   },
+   {
+    "year": 2018,
+    "count": 7870
+   },
+   {
+    "year": 2019,
+    "count": 12832
+   },
+   {
+    "year": 2020,
+    "count": 15416
+   },
+   {
+    "year": 2021,
+    "count": 17537
+   },
+   {
+    "year": 2022,
+    "count": 20736
+   },
+   {
+    "year": 2023,
+    "count": 25908
+   },
+   {
+    "year": 2024,
+    "count": 32553
+   },
+   {
+    "year": 2025,
+    "count": 47852
+   }
+  ]
+ }
+}

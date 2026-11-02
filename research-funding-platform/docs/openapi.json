@@ -1,0 +1,7802 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "Research Funding & Innovation Intelligence Platform",
+  "description": "REST API for funding discovery, research/patent/technology intelligence, weighted innovation scoring, commercialization recommendations, alerts, reports and administration. Use **Authorize** with a platform account (OAuth2 password flow) to try protected endpoints.",
+  "version": "1.0.0"
+ },
+ "paths": {
+  "/api/health": {
+   "get": {
+    "tags": [
+     "System"
+    ],
+    "summary": "Health",
+    "operationId": "health_api_health_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Health Api Health Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/register": {
+   "post": {
+    "tags": [
+     "Authentication"
+    ],
+    "summary": "Register",
+    "operationId": "register_api_auth_register_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RegisterIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/TokenOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/login": {
+   "post": {
+    "tags": [
+     "Authentication"
+    ],
+    "summary": "Login",
+    "operationId": "login_api_auth_login_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/LoginIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/TokenOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/token": {
+   "post": {
+    "tags": [
+     "Authentication"
+    ],
+    "summary": "OAuth2 password flow (used by the Swagger 'Authorize' button)",
+    "operationId": "token_api_auth_token_post",
+    "requestBody": {
+     "content": {
+      "application/x-www-form-urlencoded": {
+       "schema": {
+        "$ref": "#/components/schemas/Body_token_api_auth_token_post"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Token Api Auth Token Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/me": {
+   "get": {
+    "tags": [
+     "Authentication"
+    ],
+    "summary": "Me",
+    "operationId": "me_api_auth_me_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/UserOut"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/auth/change-password": {
+   "post": {
+    "tags": [
+     "Authentication"
+    ],
+    "summary": "Change Password",
+    "operationId": "change_password_api_auth_change_password_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ChangePasswordIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Message"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/auth/oauth/providers": {
+   "get": {
+    "tags": [
+     "Authentication"
+    ],
+    "summary": "Oauth Providers",
+    "operationId": "oauth_providers_api_auth_oauth_providers_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Oauth Providers Api Auth Oauth Providers Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/oauth/{provider}/login": {
+   "get": {
+    "tags": [
+     "Authentication"
+    ],
+    "summary": "Oauth Login",
+    "operationId": "oauth_login_api_auth_oauth__provider__login_get",
+    "parameters": [
+     {
+      "name": "provider",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Provider"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/oauth/{provider}/callback": {
+   "get": {
+    "tags": [
+     "Authentication"
+    ],
+    "summary": "Oauth Callback",
+    "operationId": "oauth_callback_api_auth_oauth__provider__callback_get",
+    "parameters": [
+     {
+      "name": "provider",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Provider"
+      }
+     },
+     {
+      "name": "code",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Code"
+      }
+     },
+     {
+      "name": "state",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "State"
+      }
+     },
+     {
+      "name": "error",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Error"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/users/me": {
+   "patch": {
+    "tags": [
+     "Account"
+    ],
+    "summary": "Update Me",
+    "operationId": "update_me_api_users_me_patch",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/UserUpdate"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/UserOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/users/me/export": {
+   "get": {
+    "tags": [
+     "Account"
+    ],
+    "summary": "Download all personal data (data portability)",
+    "operationId": "export_me_api_users_me_export_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/users/me/delete": {
+   "post": {
+    "tags": [
+     "Account"
+    ],
+    "summary": "Anonymise and deactivate my account",
+    "operationId": "delete_me_api_users_me_delete_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/DeleteAccountIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Message"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/profile/options": {
+   "get": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Options",
+    "operationId": "options_api_profile_options_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Options Api Profile Options Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/profile": {
+   "get": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Get Profile",
+    "operationId": "get_profile_api_profile_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ProfileOut"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   },
+   "put": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Update Profile",
+    "operationId": "update_profile_api_profile_put",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ProfileIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ProfileOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/profile/publications": {
+   "get": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "List Publications",
+    "operationId": "list_publications_api_profile_publications_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/PublicationOut"
+         },
+         "type": "array",
+         "title": "Response List Publications Api Profile Publications Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   },
+   "post": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Create Publication",
+    "operationId": "create_publication_api_profile_publications_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PublicationIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PublicationOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/profile/publications/lookup": {
+   "get": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Lookup Publication",
+    "description": "Fetch metadata for a DOI from Crossref, falling back to OpenAlex.",
+    "operationId": "lookup_publication_api_profile_publications_lookup_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "doi",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "minLength": 6,
+       "maxLength": 255,
+       "title": "Doi"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Lookup Publication Api Profile Publications Lookup Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/profile/publications/{pub_id}": {
+   "put": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Update Publication",
+    "operationId": "update_publication_api_profile_publications__pub_id__put",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "pub_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Pub Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PublicationIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PublicationOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Delete Publication",
+    "operationId": "delete_publication_api_profile_publications__pub_id__delete",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "pub_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Pub Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/profile/patents": {
+   "get": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "List Patents",
+    "operationId": "list_patents_api_profile_patents_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/PatentOut"
+         },
+         "type": "array",
+         "title": "Response List Patents Api Profile Patents Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   },
+   "post": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Create Patent",
+    "operationId": "create_patent_api_profile_patents_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PatentIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PatentOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/profile/patents/{patent_id}": {
+   "put": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Update Patent",
+    "operationId": "update_patent_api_profile_patents__patent_id__put",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "patent_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Patent Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PatentIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PatentOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Delete Patent",
+    "operationId": "delete_patent_api_profile_patents__patent_id__delete",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "patent_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Patent Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/profile/history": {
+   "get": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "List History",
+    "operationId": "list_history_api_profile_history_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/HistoryOut"
+         },
+         "type": "array",
+         "title": "Response List History Api Profile History Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   },
+   "post": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Create History",
+    "operationId": "create_history_api_profile_history_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/HistoryIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HistoryOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/profile/history/{entry_id}": {
+   "put": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Update History",
+    "operationId": "update_history_api_profile_history__entry_id__put",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "entry_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Entry Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/HistoryIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HistoryOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Research profile"
+    ],
+    "summary": "Delete History",
+    "operationId": "delete_history_api_profile_history__entry_id__delete",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "entry_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Entry Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/funding": {
+   "get": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "Search Funding",
+    "operationId": "search_funding_api_funding_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Q"
+      }
+     },
+     {
+      "name": "funder_type",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Funder Type"
+      }
+     },
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     },
+     {
+      "name": "country",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Country"
+      }
+     },
+     {
+      "name": "status",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Status"
+      }
+     },
+     {
+      "name": "record_type",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Record Type"
+      }
+     },
+     {
+      "name": "applicant_type",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Applicant Type"
+      }
+     },
+     {
+      "name": "deadline_after",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "date"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Deadline After"
+      }
+     },
+     {
+      "name": "deadline_before",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "date"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Deadline Before"
+      }
+     },
+     {
+      "name": "min_amount",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Min Amount"
+      }
+     },
+     {
+      "name": "include_closed",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Include Closed"
+      }
+     },
+     {
+      "name": "sort",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string",
+       "pattern": "^(deadline|amount|newest|title|relevance)$",
+       "default": "deadline",
+       "title": "Sort"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 12,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Search Funding Api Funding Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "Create Funding",
+    "operationId": "create_funding_api_funding_post",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/FundingIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/FundingOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/funding/facets": {
+   "get": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "Facets",
+    "operationId": "facets_api_funding_facets_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Facets Api Funding Facets Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/funding/saved": {
+   "get": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "List Saved",
+    "operationId": "list_saved_api_funding_saved_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/SavedOut"
+         },
+         "type": "array",
+         "title": "Response List Saved Api Funding Saved Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/funding/saved/{saved_id}": {
+   "patch": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "Update Saved",
+    "operationId": "update_saved_api_funding_saved__saved_id__patch",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "saved_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Saved Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SavedUpdate"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SavedOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/funding/{funding_id}": {
+   "get": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "Get Funding",
+    "operationId": "get_funding_api_funding__funding_id__get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "funding_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Funding Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Funding Api Funding  Funding Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "Update Funding",
+    "operationId": "update_funding_api_funding__funding_id__put",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "funding_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Funding Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/FundingIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/FundingOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "Delete Funding",
+    "operationId": "delete_funding_api_funding__funding_id__delete",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "funding_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Funding Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/funding/{funding_id}/save": {
+   "post": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "Save Funding",
+    "operationId": "save_funding_api_funding__funding_id__save_post",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "funding_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Funding Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/SaveIn"
+         },
+         {
+          "type": "null"
+         }
+        ],
+        "title": "Payload"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SavedOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Funding discovery"
+    ],
+    "summary": "Unsave Funding",
+    "operationId": "unsave_funding_api_funding__funding_id__save_delete",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "funding_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Funding Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/recommendations": {
+   "get": {
+    "tags": [
+     "Recommendations"
+    ],
+    "summary": "Get Recommendations",
+    "operationId": "get_recommendations_api_recommendations_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 50,
+       "minimum": 1,
+       "default": 10,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "include_ineligible",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Include Ineligible"
+      }
+     },
+     {
+      "name": "funder_type",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Funder Type"
+      }
+     },
+     {
+      "name": "min_score",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "number",
+       "maximum": 100,
+       "minimum": 0,
+       "default": 0,
+       "title": "Min Score"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Recommendations Api Recommendations Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/recommendations/project/{project_id}": {
+   "get": {
+    "tags": [
+     "Recommendations"
+    ],
+    "summary": "Project Recommendations",
+    "operationId": "project_recommendations_api_recommendations_project__project_id__get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "project_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Project Id"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 50,
+       "minimum": 1,
+       "default": 10,
+       "title": "Limit"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Project Recommendations Api Recommendations Project  Project Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/recommendations/feedback": {
+   "post": {
+    "tags": [
+     "Recommendations"
+    ],
+    "summary": "Feedback",
+    "operationId": "feedback_api_recommendations_feedback_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/FeedbackIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Message"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/research/overview": {
+   "get": {
+    "tags": [
+     "Research trend intelligence"
+    ],
+    "summary": "Research Overview",
+    "operationId": "research_overview_api_research_overview_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Research Overview Api Research Overview Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/research/trends": {
+   "get": {
+    "tags": [
+     "Research trend intelligence"
+    ],
+    "summary": "Research Trends",
+    "operationId": "research_trends_api_research_trends_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "domains",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domains"
+      }
+     },
+     {
+      "name": "start_year",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 2100,
+         "minimum": 1990
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Start Year"
+      }
+     },
+     {
+      "name": "end_year",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 2100,
+         "minimum": 1990
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "End Year"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Research Trends Api Research Trends Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/research/emerging-topics": {
+   "get": {
+    "tags": [
+     "Research trend intelligence"
+    ],
+    "summary": "Research Emerging",
+    "operationId": "research_emerging_api_research_emerging_topics_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 40,
+       "minimum": 1,
+       "default": 15,
+       "title": "Limit"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Research Emerging Api Research Emerging Topics Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/research/hotspots": {
+   "get": {
+    "tags": [
+     "Research trend intelligence"
+    ],
+    "summary": "Research Hotspots",
+    "operationId": "research_hotspots_api_research_hotspots_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 20,
+       "minimum": 1,
+       "default": 8,
+       "title": "Limit"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Research Hotspots Api Research Hotspots Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/research/citations": {
+   "get": {
+    "tags": [
+     "Research trend intelligence"
+    ],
+    "summary": "Research Citations",
+    "operationId": "research_citations_api_research_citations_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Research Citations Api Research Citations Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/research/publications": {
+   "get": {
+    "tags": [
+     "Research trend intelligence"
+    ],
+    "summary": "Research Publications",
+    "operationId": "research_publications_api_research_publications_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Q"
+      }
+     },
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     },
+     {
+      "name": "year_from",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year From"
+      }
+     },
+     {
+      "name": "year_to",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year To"
+      }
+     },
+     {
+      "name": "sort",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string",
+       "pattern": "^(citations|year|title)$",
+       "default": "citations",
+       "title": "Sort"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 10,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Research Publications Api Research Publications Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/research/live-trend": {
+   "get": {
+    "tags": [
+     "Research trend intelligence"
+    ],
+    "summary": "Research Live Trend",
+    "operationId": "research_live_trend_api_research_live_trend_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "query",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "minLength": 2,
+       "maxLength": 120,
+       "title": "Query"
+      }
+     },
+     {
+      "name": "start_year",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "minimum": 1990
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Start Year"
+      }
+     },
+     {
+      "name": "end_year",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 2100
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "End Year"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Research Live Trend Api Research Live Trend Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/research/my-analytics": {
+   "get": {
+    "tags": [
+     "Research trend intelligence"
+    ],
+    "summary": "Research My Analytics",
+    "operationId": "research_my_analytics_api_research_my_analytics_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Research My Analytics Api Research My Analytics Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/patents": {
+   "get": {
+    "tags": [
+     "Patent landscape"
+    ],
+    "summary": "Patent Search",
+    "operationId": "patent_search_api_patents_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Q"
+      }
+     },
+     {
+      "name": "assignee",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Assignee"
+      }
+     },
+     {
+      "name": "classification",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Classification"
+      }
+     },
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     },
+     {
+      "name": "status",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Status"
+      }
+     },
+     {
+      "name": "year_from",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year From"
+      }
+     },
+     {
+      "name": "year_to",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year To"
+      }
+     },
+     {
+      "name": "sort",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string",
+       "pattern": "^(filing_date|citations|title)$",
+       "default": "filing_date",
+       "title": "Sort"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 12,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Patent Search Api Patents Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/patents/facets": {
+   "get": {
+    "tags": [
+     "Patent landscape"
+    ],
+    "summary": "Patent Facets",
+    "operationId": "patent_facets_api_patents_facets_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Patent Facets Api Patents Facets Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/patents/analytics/trends": {
+   "get": {
+    "tags": [
+     "Patent landscape"
+    ],
+    "summary": "Patent Trends",
+    "operationId": "patent_trends_api_patents_analytics_trends_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Patent Trends Api Patents Analytics Trends Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/patents/analytics/assignees": {
+   "get": {
+    "tags": [
+     "Patent landscape"
+    ],
+    "summary": "Patent Assignees",
+    "operationId": "patent_assignees_api_patents_analytics_assignees_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 50,
+       "minimum": 1,
+       "default": 10,
+       "title": "Limit"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Patent Assignees Api Patents Analytics Assignees Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/patents/analytics/competitors": {
+   "get": {
+    "tags": [
+     "Patent landscape"
+    ],
+    "summary": "Patent Competitors",
+    "operationId": "patent_competitors_api_patents_analytics_competitors_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "assignees",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "minLength": 2,
+       "title": "Assignees"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Patent Competitors Api Patents Analytics Competitors Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/patents/analytics/clusters": {
+   "get": {
+    "tags": [
+     "Patent landscape"
+    ],
+    "summary": "Patent Clusters",
+    "operationId": "patent_clusters_api_patents_analytics_clusters_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     },
+     {
+      "name": "k",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 12,
+         "minimum": 2
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "K"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Patent Clusters Api Patents Analytics Clusters Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/patents/analytics/innovation-map": {
+   "get": {
+    "tags": [
+     "Patent landscape"
+    ],
+    "summary": "Patent Innovation Map",
+    "operationId": "patent_innovation_map_api_patents_analytics_innovation_map_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Patent Innovation Map Api Patents Analytics Innovation Map Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/patents/live-search": {
+   "get": {
+    "tags": [
+     "Patent landscape"
+    ],
+    "summary": "Patent Live Search",
+    "operationId": "patent_live_search_api_patents_live_search_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "minLength": 2,
+       "maxLength": 120,
+       "title": "Q"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Patent Live Search Api Patents Live Search Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/patents/{patent_id}": {
+   "get": {
+    "tags": [
+     "Patent landscape"
+    ],
+    "summary": "Patent Detail",
+    "operationId": "patent_detail_api_patents__patent_id__get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "patent_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Patent Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Patent Detail Api Patents  Patent Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/technology/areas": {
+   "get": {
+    "tags": [
+     "Technology intelligence"
+    ],
+    "summary": "Tech Areas",
+    "operationId": "tech_areas_api_technology_areas_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Tech Areas Api Technology Areas Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/technology/areas/{key}": {
+   "get": {
+    "tags": [
+     "Technology intelligence"
+    ],
+    "summary": "Tech Area",
+    "operationId": "tech_area_api_technology_areas__key__get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "key",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Key"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Tech Area Api Technology Areas  Key  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/technology/emerging": {
+   "get": {
+    "tags": [
+     "Technology intelligence"
+    ],
+    "summary": "Tech Emerging",
+    "operationId": "tech_emerging_api_technology_emerging_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Tech Emerging Api Technology Emerging Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/technology/opportunities": {
+   "get": {
+    "tags": [
+     "Technology intelligence"
+    ],
+    "summary": "Tech Opportunities",
+    "operationId": "tech_opportunities_api_technology_opportunities_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Tech Opportunities Api Technology Opportunities Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/technology/adoption": {
+   "get": {
+    "tags": [
+     "Technology intelligence"
+    ],
+    "summary": "Tech Adoption",
+    "operationId": "tech_adoption_api_technology_adoption_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Tech Adoption Api Technology Adoption Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/technology/competitive": {
+   "get": {
+    "tags": [
+     "Technology intelligence"
+    ],
+    "summary": "Tech Competitive",
+    "operationId": "tech_competitive_api_technology_competitive_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "area",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Area"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Tech Competitive Api Technology Competitive Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/innovation/weights": {
+   "get": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "Weights",
+    "operationId": "weights_api_innovation_weights_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Weights Api Innovation Weights Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/innovation/projects": {
+   "get": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "List Projects",
+    "operationId": "list_projects_api_innovation_projects_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "scope",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string",
+       "pattern": "^(mine|all)$",
+       "default": "mine",
+       "title": "Scope"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "additionalProperties": true
+         },
+         "title": "Response List Projects Api Innovation Projects Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "Create Project",
+    "operationId": "create_project_api_innovation_projects_post",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ProjectIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Create Project Api Innovation Projects Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/innovation/projects/{project_id}": {
+   "get": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "Get Project",
+    "operationId": "get_project_api_innovation_projects__project_id__get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "project_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Project Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Project Api Innovation Projects  Project Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "Update Project",
+    "operationId": "update_project_api_innovation_projects__project_id__put",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "project_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Project Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ProjectIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Update Project Api Innovation Projects  Project Id  Put"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "Delete Project",
+    "operationId": "delete_project_api_innovation_projects__project_id__delete",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "project_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Project Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/innovation/projects/{project_id}/stage": {
+   "patch": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "Change Stage",
+    "operationId": "change_stage_api_innovation_projects__project_id__stage_patch",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "project_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Project Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/StageIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Change Stage Api Innovation Projects  Project Id  Stage Patch"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/innovation/projects/{project_id}/score": {
+   "post": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "Score Project",
+    "operationId": "score_project_api_innovation_projects__project_id__score_post",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "project_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Project Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ScoreOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/innovation/score-preview": {
+   "post": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "Score Preview",
+    "operationId": "score_preview_api_innovation_score_preview_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ProjectIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ScoreOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/innovation/portfolio": {
+   "get": {
+    "tags": [
+     "Innovation scoring"
+    ],
+    "summary": "Portfolio",
+    "operationId": "portfolio_api_innovation_portfolio_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Portfolio Api Innovation Portfolio Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/commercialization/overview": {
+   "get": {
+    "tags": [
+     "Commercialization"
+    ],
+    "summary": "Commercial Overview",
+    "operationId": "commercial_overview_api_commercialization_overview_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Commercial Overview Api Commercialization Overview Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/commercialization/projects/{project_id}": {
+   "get": {
+    "tags": [
+     "Commercialization"
+    ],
+    "summary": "Commercial Project",
+    "operationId": "commercial_project_api_commercialization_projects__project_id__get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "project_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Project Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Commercial Project Api Commercialization Projects  Project Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/dashboard": {
+   "get": {
+    "tags": [
+     "Dashboards"
+    ],
+    "summary": "Get Dashboard",
+    "operationId": "get_dashboard_api_dashboard_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "view",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "pattern": "^(researcher|startup|manager|admin)$"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "View"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Dashboard Api Dashboard Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/notifications": {
+   "get": {
+    "tags": [
+     "Notifications & alerts"
+    ],
+    "summary": "List Notifications",
+    "operationId": "list_notifications_api_notifications_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "unread_only",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Unread Only"
+      }
+     },
+     {
+      "name": "type",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Type"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 20,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response List Notifications Api Notifications Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/notifications/unread-count": {
+   "get": {
+    "tags": [
+     "Notifications & alerts"
+    ],
+    "summary": "Unread Count",
+    "operationId": "unread_count_api_notifications_unread_count_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Unread Count Api Notifications Unread Count Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/notifications/read-all": {
+   "post": {
+    "tags": [
+     "Notifications & alerts"
+    ],
+    "summary": "Read All",
+    "operationId": "read_all_api_notifications_read_all_post",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Read All Api Notifications Read All Post"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/notifications/refresh": {
+   "post": {
+    "tags": [
+     "Notifications & alerts"
+    ],
+    "summary": "Refresh Alerts",
+    "operationId": "refresh_alerts_api_notifications_refresh_post",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Refresh Alerts Api Notifications Refresh Post"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/notifications/{notification_id}/read": {
+   "post": {
+    "tags": [
+     "Notifications & alerts"
+    ],
+    "summary": "Mark Read",
+    "operationId": "mark_read_api_notifications__notification_id__read_post",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "notification_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Notification Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/NotificationOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/notifications/{notification_id}": {
+   "delete": {
+    "tags": [
+     "Notifications & alerts"
+    ],
+    "summary": "Delete Notification",
+    "operationId": "delete_notification_api_notifications__notification_id__delete",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "notification_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Notification Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/reports/types": {
+   "get": {
+    "tags": [
+     "Reports & export"
+    ],
+    "summary": "Report Types",
+    "operationId": "report_types_api_reports_types_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "additionalProperties": true,
+          "type": "object"
+         },
+         "type": "array",
+         "title": "Response Report Types Api Reports Types Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/reports/history": {
+   "get": {
+    "tags": [
+     "Reports & export"
+    ],
+    "summary": "Report History",
+    "operationId": "report_history_api_reports_history_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/ReportRecordOut"
+         },
+         "type": "array",
+         "title": "Response Report History Api Reports History Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/reports/{report_type}/preview": {
+   "get": {
+    "tags": [
+     "Reports & export"
+    ],
+    "summary": "Report Preview",
+    "operationId": "report_preview_api_reports__report_type__preview_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "report_type",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Report Type"
+      }
+     },
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     },
+     {
+      "name": "project_id",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Project Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Report Preview Api Reports  Report Type  Preview Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/reports/{report_type}/download": {
+   "get": {
+    "tags": [
+     "Reports & export"
+    ],
+    "summary": "Report Download",
+    "operationId": "report_download_api_reports__report_type__download_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "report_type",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Report Type"
+      }
+     },
+     {
+      "name": "format",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string",
+       "pattern": "^(csv|xlsx|pdf)$",
+       "default": "pdf",
+       "title": "Format"
+      }
+     },
+     {
+      "name": "domain",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Domain"
+      }
+     },
+     {
+      "name": "project_id",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Project Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/admin/users": {
+   "get": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "List Users",
+    "operationId": "list_users_api_admin_users_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Q"
+      }
+     },
+     {
+      "name": "role",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Role"
+      }
+     },
+     {
+      "name": "is_active",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "boolean"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Is Active"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 20,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response List Users Api Admin Users Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/admin/users/{user_id}": {
+   "patch": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Update User",
+    "operationId": "update_user_api_admin_users__user_id__patch",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "user_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "User Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AdminUserUpdate"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/UserOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/admin/analytics": {
+   "get": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Analytics",
+    "operationId": "analytics_api_admin_analytics_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Analytics Api Admin Analytics Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/admin/recommendation-monitoring": {
+   "get": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Recommendation Monitoring",
+    "operationId": "recommendation_monitoring_api_admin_recommendation_monitoring_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Recommendation Monitoring Api Admin Recommendation Monitoring Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/admin/datasets": {
+   "get": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Datasets",
+    "operationId": "datasets_api_admin_datasets_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Datasets Api Admin Datasets Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/admin/datasets/{key}/template": {
+   "get": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Dataset Template",
+    "operationId": "dataset_template_api_admin_datasets__key__template_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "key",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Key"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/admin/datasets/funding/sync-grantsgov": {
+   "post": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Sync Grantsgov",
+    "operationId": "sync_grantsgov_api_admin_datasets_funding_sync_grantsgov_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/SyncGrantsIn"
+         },
+         {
+          "type": "null"
+         }
+        ],
+        "title": "Payload"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ImportOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/admin/datasets/publications/sync-openalex": {
+   "post": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Sync Openalex",
+    "operationId": "sync_openalex_api_admin_datasets_publications_sync_openalex_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SyncOpenAlexIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ImportOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/admin/datasets/{key}/import": {
+   "post": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Import Dataset",
+    "operationId": "import_dataset_api_admin_datasets__key__import_post",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "key",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Key"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "multipart/form-data": {
+       "schema": {
+        "$ref": "#/components/schemas/Body_import_dataset_api_admin_datasets__key__import_post"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ImportOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/admin/audit-logs": {
+   "get": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Audit Logs",
+    "operationId": "audit_logs_api_admin_audit_logs_get",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "action",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Action"
+      }
+     },
+     {
+      "name": "q",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Q"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 25,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Audit Logs Api Admin Audit Logs Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/admin/system": {
+   "get": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "System",
+    "operationId": "system_api_admin_system_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response System Api Admin System Get"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  },
+  "/api/admin/jobs/{name}/run": {
+   "post": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Run Job",
+    "operationId": "run_job_api_admin_jobs__name__run_post",
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "name",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Name"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/JobRunOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/admin/notifications/broadcast": {
+   "post": {
+    "tags": [
+     "Administration"
+    ],
+    "summary": "Broadcast",
+    "operationId": "broadcast_api_admin_notifications_broadcast_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/BroadcastIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Broadcast Api Admin Notifications Broadcast Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "OAuth2PasswordBearer": []
+     }
+    ]
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "AdminUserUpdate": {
+    "properties": {
+     "role": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "researcher",
+         "startup_founder",
+         "innovation_manager",
+         "admin"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Role"
+     },
+     "is_active": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Is Active"
+     }
+    },
+    "type": "object",
+    "title": "AdminUserUpdate"
+   },
+   "Body_import_dataset_api_admin_datasets__key__import_post": {
+    "properties": {
+     "file": {
+      "type": "string",
+      "contentMediaType": "application/octet-stream",
+      "title": "File"
+     }
+    },
+    "type": "object",
+    "required": [
+     "file"
+    ],
+    "title": "Body_import_dataset_api_admin_datasets__key__import_post"
+   },
+   "Body_token_api_auth_token_post": {
+    "properties": {
+     "grant_type": {
+      "anyOf": [
+       {
+        "type": "string",
+        "pattern": "^password$"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Grant Type"
+     },
+     "username": {
+      "type": "string",
+      "title": "Username"
+     },
+     "password": {
+      "type": "string",
+      "format": "password",
+      "title": "Password"
+     },
+     "scope": {
+      "type": "string",
+      "title": "Scope",
+      "default": ""
+     },
+     "client_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Client Id"
+     },
+     "client_secret": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "format": "password",
+      "title": "Client Secret"
+     }
+    },
+    "type": "object",
+    "required": [
+     "username",
+     "password"
+    ],
+    "title": "Body_token_api_auth_token_post"
+   },
+   "BroadcastIn": {
+    "properties": {
+     "title": {
+      "type": "string",
+      "maxLength": 300,
+      "minLength": 3,
+      "title": "Title"
+     },
+     "message": {
+      "type": "string",
+      "maxLength": 4000,
+      "minLength": 3,
+      "title": "Message"
+     },
+     "roles": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string",
+         "enum": [
+          "researcher",
+          "startup_founder",
+          "innovation_manager",
+          "admin"
+         ]
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Roles"
+     }
+    },
+    "type": "object",
+    "required": [
+     "title",
+     "message"
+    ],
+    "title": "BroadcastIn"
+   },
+   "ChangePasswordIn": {
+    "properties": {
+     "current_password": {
+      "type": "string",
+      "title": "Current Password"
+     },
+     "new_password": {
+      "type": "string",
+      "title": "New Password"
+     }
+    },
+    "type": "object",
+    "required": [
+     "current_password",
+     "new_password"
+    ],
+    "title": "ChangePasswordIn"
+   },
+   "DeleteAccountIn": {
+    "properties": {
+     "password": {
+      "type": "string",
+      "title": "Password",
+      "default": ""
+     }
+    },
+    "type": "object",
+    "title": "DeleteAccountIn"
+   },
+   "FeedbackIn": {
+    "properties": {
+     "funding_id": {
+      "type": "integer",
+      "title": "Funding Id"
+     },
+     "action": {
+      "type": "string",
+      "enum": [
+       "clicked",
+       "saved",
+       "dismissed"
+      ],
+      "title": "Action"
+     }
+    },
+    "type": "object",
+    "required": [
+     "funding_id",
+     "action"
+    ],
+    "title": "FeedbackIn"
+   },
+   "FundingIn": {
+    "properties": {
+     "title": {
+      "type": "string",
+      "maxLength": 500,
+      "minLength": 3,
+      "title": "Title"
+     },
+     "organization": {
+      "type": "string",
+      "maxLength": 300,
+      "minLength": 2,
+      "title": "Organization"
+     },
+     "funder_type": {
+      "type": "string",
+      "enum": [
+       "government_grant",
+       "research_council",
+       "innovation_fund",
+       "startup_accelerator",
+       "venture_program",
+       "international_agency"
+      ],
+      "title": "Funder Type"
+     },
+     "description": {
+      "type": "string",
+      "maxLength": 8000,
+      "minLength": 10,
+      "title": "Description"
+     },
+     "domains": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Domains"
+     },
+     "keywords": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Keywords"
+     },
+     "eligibility_text": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 4000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Eligibility Text"
+     },
+     "applicant_types": {
+      "items": {
+       "type": "string",
+       "enum": [
+        "researcher",
+        "startup",
+        "university",
+        "enterprise",
+        "nonprofit",
+        "government"
+       ]
+      },
+      "type": "array",
+      "title": "Applicant Types"
+     },
+     "eligible_countries": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Eligible Countries"
+     },
+     "career_stages": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Career Stages"
+     },
+     "min_amount": {
+      "anyOf": [
+       {
+        "type": "number",
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Min Amount"
+     },
+     "max_amount": {
+      "anyOf": [
+       {
+        "type": "number",
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Max Amount"
+     },
+     "currency": {
+      "type": "string",
+      "maxLength": 8,
+      "title": "Currency",
+      "default": "USD"
+     },
+     "open_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Open Date"
+     },
+     "deadline": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Deadline"
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "open",
+       "forecasted",
+       "closed",
+       "rolling"
+      ],
+      "title": "Status",
+      "default": "open"
+     },
+     "source_name": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 200
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Source Name"
+     },
+     "source_url": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 1000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Source Url"
+     }
+    },
+    "type": "object",
+    "required": [
+     "title",
+     "organization",
+     "funder_type",
+     "description"
+    ],
+    "title": "FundingIn"
+   },
+   "FundingOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "title": {
+      "type": "string",
+      "title": "Title"
+     },
+     "organization": {
+      "type": "string",
+      "title": "Organization"
+     },
+     "funder_type": {
+      "type": "string",
+      "title": "Funder Type"
+     },
+     "description": {
+      "type": "string",
+      "title": "Description"
+     },
+     "domains": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Domains",
+      "default": []
+     },
+     "keywords": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Keywords",
+      "default": []
+     },
+     "eligibility_text": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Eligibility Text"
+     },
+     "applicant_types": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Applicant Types",
+      "default": []
+     },
+     "eligible_countries": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Eligible Countries",
+      "default": []
+     },
+     "career_stages": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Career Stages",
+      "default": []
+     },
+     "min_amount": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Min Amount"
+     },
+     "max_amount": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Max Amount"
+     },
+     "currency": {
+      "type": "string",
+      "title": "Currency",
+      "default": "USD"
+     },
+     "open_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Open Date"
+     },
+     "deadline": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Deadline"
+     },
+     "status": {
+      "type": "string",
+      "title": "Status"
+     },
+     "source_name": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Source Name"
+     },
+     "source_url": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Source Url"
+     },
+     "record_type": {
+      "type": "string",
+      "title": "Record Type"
+     },
+     "verified_at": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Verified At"
+     },
+     "external_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "External Id"
+     },
+     "days_until_deadline": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Days Until Deadline"
+     },
+     "created_at": {
+      "type": "string",
+      "title": "Created At"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "title",
+     "organization",
+     "funder_type",
+     "description",
+     "status",
+     "record_type",
+     "created_at"
+    ],
+    "title": "FundingOut"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "type": "array",
+      "title": "Detail"
+     }
+    },
+    "type": "object",
+    "title": "HTTPValidationError"
+   },
+   "HistoryIn": {
+    "properties": {
+     "kind": {
+      "type": "string",
+      "enum": [
+       "position",
+       "project",
+       "grant",
+       "education",
+       "award"
+      ],
+      "title": "Kind",
+      "default": "position"
+     },
+     "title": {
+      "type": "string",
+      "maxLength": 300,
+      "minLength": 2,
+      "title": "Title"
+     },
+     "role": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 200
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Role"
+     },
+     "institution": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 300
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Institution"
+     },
+     "start_year": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 2100.0,
+        "minimum": 1950.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Start Year"
+     },
+     "end_year": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 2100.0,
+        "minimum": 1950.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "End Year"
+     },
+     "description": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 5000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Description"
+     }
+    },
+    "type": "object",
+    "required": [
+     "title"
+    ],
+    "title": "HistoryIn"
+   },
+   "HistoryOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "kind": {
+      "type": "string",
+      "title": "Kind"
+     },
+     "title": {
+      "type": "string",
+      "title": "Title"
+     },
+     "role": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Role"
+     },
+     "institution": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Institution"
+     },
+     "start_year": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Start Year"
+     },
+     "end_year": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "End Year"
+     },
+     "description": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Description"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "kind",
+     "title"
+    ],
+    "title": "HistoryOut"
+   },
+   "ImportOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "dataset": {
+      "type": "string",
+      "title": "Dataset"
+     },
+     "filename": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Filename"
+     },
+     "source": {
+      "type": "string",
+      "title": "Source"
+     },
+     "status": {
+      "type": "string",
+      "title": "Status"
+     },
+     "rows_total": {
+      "type": "integer",
+      "title": "Rows Total"
+     },
+     "rows_imported": {
+      "type": "integer",
+      "title": "Rows Imported"
+     },
+     "rows_failed": {
+      "type": "integer",
+      "title": "Rows Failed"
+     },
+     "errors": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Errors",
+      "default": []
+     },
+     "created_at": {
+      "type": "string",
+      "title": "Created At"
+     },
+     "user_email": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "User Email"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "dataset",
+     "source",
+     "status",
+     "rows_total",
+     "rows_imported",
+     "rows_failed",
+     "created_at"
+    ],
+    "title": "ImportOut"
+   },
+   "JobRunOut": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "title": "Name"
+     },
+     "status": {
+      "type": "string",
+      "title": "Status"
+     },
+     "detail": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Detail"
+     },
+     "started_at": {
+      "type": "string",
+      "title": "Started At"
+     },
+     "finished_at": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Finished At"
+     }
+    },
+    "type": "object",
+    "required": [
+     "name",
+     "status",
+     "started_at"
+    ],
+    "title": "JobRunOut"
+   },
+   "LoginIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "password": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Password"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "password"
+    ],
+    "title": "LoginIn"
+   },
+   "Message": {
+    "properties": {
+     "detail": {
+      "type": "string",
+      "title": "Detail"
+     }
+    },
+    "type": "object",
+    "required": [
+     "detail"
+    ],
+    "title": "Message"
+   },
+   "NotificationOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "type": {
+      "type": "string",
+      "title": "Type"
+     },
+     "title": {
+      "type": "string",
+      "title": "Title"
+     },
+     "message": {
+      "type": "string",
+      "title": "Message"
+     },
+     "link": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Link"
+     },
+     "priority": {
+      "type": "string",
+      "title": "Priority",
+      "default": "normal"
+     },
+     "is_read": {
+      "type": "boolean",
+      "title": "Is Read"
+     },
+     "created_at": {
+      "type": "string",
+      "title": "Created At"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "type",
+     "title",
+     "message",
+     "is_read",
+     "created_at"
+    ],
+    "title": "NotificationOut"
+   },
+   "NotificationPreferences": {
+    "properties": {
+     "in_app": {
+      "type": "boolean",
+      "title": "In App",
+      "default": true
+     },
+     "deadline_reminder_days": {
+      "type": "integer",
+      "maximum": 90.0,
+      "minimum": 1.0,
+      "title": "Deadline Reminder Days",
+      "default": 14
+     },
+     "alert_types": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Alert Types"
+     }
+    },
+    "type": "object",
+    "title": "NotificationPreferences"
+   },
+   "PatentIn": {
+    "properties": {
+     "patent_number": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 64
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Patent Number"
+     },
+     "title": {
+      "type": "string",
+      "maxLength": 500,
+      "minLength": 2,
+      "title": "Title"
+     },
+     "abstract": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 10000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Abstract"
+     },
+     "assignee": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 255
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Assignee"
+     },
+     "inventors": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Inventors"
+     },
+     "filing_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Filing Date"
+     },
+     "grant_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Grant Date"
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "granted",
+       "pending",
+       "expired",
+       "abandoned"
+      ],
+      "title": "Status",
+      "default": "pending"
+     },
+     "classification": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 64
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Classification"
+     },
+     "technology_domain": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Technology Domain"
+     },
+     "citation_count": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Citation Count",
+      "default": 0
+     },
+     "jurisdiction": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 16
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Jurisdiction"
+     },
+     "url": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 500
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Url"
+     }
+    },
+    "type": "object",
+    "required": [
+     "title"
+    ],
+    "title": "PatentIn"
+   },
+   "PatentOut": {
+    "properties": {
+     "id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Id"
+     },
+     "patent_number": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Patent Number"
+     },
+     "title": {
+      "type": "string",
+      "title": "Title"
+     },
+     "abstract": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Abstract"
+     },
+     "assignee": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Assignee"
+     },
+     "inventors": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Inventors",
+      "default": []
+     },
+     "filing_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Filing Date"
+     },
+     "grant_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Grant Date"
+     },
+     "status": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Status"
+     },
+     "classification": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Classification"
+     },
+     "technology_domain": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Technology Domain"
+     },
+     "citation_count": {
+      "type": "integer",
+      "title": "Citation Count",
+      "default": 0
+     },
+     "jurisdiction": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Jurisdiction"
+     },
+     "keywords": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Keywords",
+      "default": []
+     },
+     "source": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Source"
+     },
+     "record_type": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Record Type"
+     },
+     "url": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Url"
+     },
+     "is_own": {
+      "type": "boolean",
+      "title": "Is Own",
+      "default": false
+     }
+    },
+    "type": "object",
+    "required": [
+     "title"
+    ],
+    "title": "PatentOut"
+   },
+   "ProfileIn": {
+    "properties": {
+     "headline": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 255
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Headline"
+     },
+     "bio": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 5000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Bio"
+     },
+     "department": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 255
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Department"
+     },
+     "organization_name": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 255
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Organization Name"
+     },
+     "organization_type": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "university",
+         "research_institute",
+         "startup",
+         "enterprise",
+         "government",
+         "nonprofit",
+         "other"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Organization Type"
+     },
+     "country": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 100
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Country"
+     },
+     "career_stage": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "student",
+         "early_career",
+         "mid_career",
+         "senior",
+         "industry"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Career Stage"
+     },
+     "research_domains": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Research Domains"
+     },
+     "keywords": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Keywords"
+     },
+     "technology_areas": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Technology Areas"
+     },
+     "orcid": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 50
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Orcid"
+     },
+     "website": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 500
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Website"
+     },
+     "google_scholar_url": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 500
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Google Scholar Url"
+     }
+    },
+    "type": "object",
+    "title": "ProfileIn"
+   },
+   "ProfileOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "user_id": {
+      "type": "integer",
+      "title": "User Id"
+     },
+     "headline": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Headline"
+     },
+     "bio": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Bio"
+     },
+     "department": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Department"
+     },
+     "organization_name": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Organization Name"
+     },
+     "organization_type": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Organization Type"
+     },
+     "country": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Country"
+     },
+     "career_stage": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Career Stage"
+     },
+     "research_domains": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Research Domains",
+      "default": []
+     },
+     "keywords": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Keywords",
+      "default": []
+     },
+     "technology_areas": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Technology Areas",
+      "default": []
+     },
+     "orcid": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Orcid"
+     },
+     "website": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Website"
+     },
+     "google_scholar_url": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Google Scholar Url"
+     },
+     "updated_at": {
+      "type": "string",
+      "title": "Updated At"
+     },
+     "completeness": {
+      "type": "integer",
+      "title": "Completeness",
+      "default": 0
+     },
+     "stats": {
+      "$ref": "#/components/schemas/ProfileStats",
+      "default": {
+       "publications": 0,
+       "patents": 0,
+       "citations": 0,
+       "h_index": 0,
+       "history_entries": 0
+      }
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "user_id",
+     "updated_at"
+    ],
+    "title": "ProfileOut"
+   },
+   "ProfileStats": {
+    "properties": {
+     "publications": {
+      "type": "integer",
+      "title": "Publications",
+      "default": 0
+     },
+     "patents": {
+      "type": "integer",
+      "title": "Patents",
+      "default": 0
+     },
+     "citations": {
+      "type": "integer",
+      "title": "Citations",
+      "default": 0
+     },
+     "h_index": {
+      "type": "integer",
+      "title": "H Index",
+      "default": 0
+     },
+     "history_entries": {
+      "type": "integer",
+      "title": "History Entries",
+      "default": 0
+     }
+    },
+    "type": "object",
+    "title": "ProfileStats"
+   },
+   "ProjectIn": {
+    "properties": {
+     "title": {
+      "type": "string",
+      "maxLength": 300,
+      "minLength": 3,
+      "title": "Title"
+     },
+     "description": {
+      "type": "string",
+      "maxLength": 8000,
+      "minLength": 20,
+      "title": "Description"
+     },
+     "domain": {
+      "type": "string",
+      "title": "Domain"
+     },
+     "keywords": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Keywords"
+     },
+     "stage": {
+      "type": "string",
+      "enum": [
+       "idea",
+       "research",
+       "prototype",
+       "pilot",
+       "market_ready"
+      ],
+      "title": "Stage",
+      "default": "idea"
+     },
+     "trl": {
+      "type": "integer",
+      "maximum": 9.0,
+      "minimum": 1.0,
+      "title": "Trl",
+      "default": 1
+     },
+     "market_size": {
+      "type": "string",
+      "enum": [
+       "niche",
+       "medium",
+       "large",
+       "very_large"
+      ],
+      "title": "Market Size",
+      "default": "medium"
+     },
+     "target_market": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 300
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Target Market"
+     },
+     "patents_filed": {
+      "type": "integer",
+      "maximum": 1000.0,
+      "minimum": 0.0,
+      "title": "Patents Filed",
+      "default": 0
+     },
+     "patents_granted": {
+      "type": "integer",
+      "maximum": 1000.0,
+      "minimum": 0.0,
+      "title": "Patents Granted",
+      "default": 0
+     },
+     "team_size": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 10000.0,
+        "minimum": 1.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Team Size"
+     },
+     "has_industry_partner": {
+      "type": "boolean",
+      "title": "Has Industry Partner",
+      "default": false
+     }
+    },
+    "type": "object",
+    "required": [
+     "title",
+     "description",
+     "domain"
+    ],
+    "title": "ProjectIn"
+   },
+   "PublicationIn": {
+    "properties": {
+     "title": {
+      "type": "string",
+      "maxLength": 500,
+      "minLength": 2,
+      "title": "Title"
+     },
+     "abstract": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 10000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Abstract"
+     },
+     "authors": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Authors"
+     },
+     "venue": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 300
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Venue"
+     },
+     "year": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 2100.0,
+        "minimum": 1900.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Year"
+     },
+     "publication_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Publication Date"
+     },
+     "doi": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 255
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Doi"
+     },
+     "url": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 500
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Url"
+     },
+     "citation_count": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Citation Count",
+      "default": 0
+     },
+     "domain": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Domain"
+     },
+     "keywords": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Keywords"
+     },
+     "pub_type": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 64
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Pub Type",
+      "default": "journal-article"
+     }
+    },
+    "type": "object",
+    "required": [
+     "title"
+    ],
+    "title": "PublicationIn"
+   },
+   "PublicationOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "title": {
+      "type": "string",
+      "title": "Title"
+     },
+     "abstract": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Abstract"
+     },
+     "authors": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Authors",
+      "default": []
+     },
+     "venue": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Venue"
+     },
+     "year": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Year"
+     },
+     "publication_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Publication Date"
+     },
+     "doi": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Doi"
+     },
+     "url": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Url"
+     },
+     "citation_count": {
+      "type": "integer",
+      "title": "Citation Count",
+      "default": 0
+     },
+     "domain": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Domain"
+     },
+     "keywords": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Keywords",
+      "default": []
+     },
+     "pub_type": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Pub Type"
+     },
+     "source": {
+      "type": "string",
+      "title": "Source"
+     },
+     "external_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "External Id"
+     },
+     "is_own": {
+      "type": "boolean",
+      "title": "Is Own",
+      "default": false
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "title",
+     "source"
+    ],
+    "title": "PublicationOut"
+   },
+   "RegisterIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "password": {
+      "type": "string",
+      "title": "Password"
+     },
+     "full_name": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 2,
+      "title": "Full Name"
+     },
+     "role": {
+      "type": "string",
+      "enum": [
+       "researcher",
+       "startup_founder",
+       "innovation_manager"
+      ],
+      "title": "Role",
+      "default": "researcher"
+     },
+     "organization": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 255
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Organization"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "password",
+     "full_name"
+    ],
+    "title": "RegisterIn"
+   },
+   "ReportRecordOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "report_type": {
+      "type": "string",
+      "title": "Report Type"
+     },
+     "format": {
+      "type": "string",
+      "title": "Format"
+     },
+     "filename": {
+      "type": "string",
+      "title": "Filename"
+     },
+     "row_count": {
+      "type": "integer",
+      "title": "Row Count"
+     },
+     "created_at": {
+      "type": "string",
+      "title": "Created At"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "report_type",
+     "format",
+     "filename",
+     "row_count",
+     "created_at"
+    ],
+    "title": "ReportRecordOut"
+   },
+   "SaveIn": {
+    "properties": {
+     "status": {
+      "type": "string",
+      "enum": [
+       "interested",
+       "preparing",
+       "submitted",
+       "awarded",
+       "rejected"
+      ],
+      "title": "Status",
+      "default": "interested"
+     },
+     "notes": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 4000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Notes"
+     }
+    },
+    "type": "object",
+    "title": "SaveIn"
+   },
+   "SavedOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "funding": {
+      "$ref": "#/components/schemas/FundingOut"
+     },
+     "status": {
+      "type": "string",
+      "title": "Status"
+     },
+     "notes": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Notes"
+     },
+     "created_at": {
+      "type": "string",
+      "title": "Created At"
+     },
+     "updated_at": {
+      "type": "string",
+      "title": "Updated At"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "funding",
+     "status",
+     "created_at",
+     "updated_at"
+    ],
+    "title": "SavedOut"
+   },
+   "SavedUpdate": {
+    "properties": {
+     "status": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "interested",
+         "preparing",
+         "submitted",
+         "awarded",
+         "rejected"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Status"
+     },
+     "notes": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 4000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Notes"
+     }
+    },
+    "type": "object",
+    "title": "SavedUpdate"
+   },
+   "ScoreComponent": {
+    "properties": {
+     "key": {
+      "type": "string",
+      "title": "Key"
+     },
+     "label": {
+      "type": "string",
+      "title": "Label"
+     },
+     "weight": {
+      "type": "number",
+      "title": "Weight"
+     },
+     "value": {
+      "type": "number",
+      "title": "Value"
+     },
+     "weighted": {
+      "type": "number",
+      "title": "Weighted"
+     },
+     "explanation": {
+      "type": "string",
+      "title": "Explanation"
+     },
+     "factors": {
+      "items": {
+       "$ref": "#/components/schemas/ScoreFactor"
+      },
+      "type": "array",
+      "title": "Factors",
+      "default": []
+     }
+    },
+    "type": "object",
+    "required": [
+     "key",
+     "label",
+     "weight",
+     "value",
+     "weighted",
+     "explanation"
+    ],
+    "title": "ScoreComponent"
+   },
+   "ScoreFactor": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "title": "Name"
+     },
+     "value": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Value"
+     },
+     "detail": {
+      "type": "string",
+      "title": "Detail",
+      "default": ""
+     }
+    },
+    "type": "object",
+    "required": [
+     "name"
+    ],
+    "title": "ScoreFactor"
+   },
+   "ScoreOut": {
+    "properties": {
+     "id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Id"
+     },
+     "project_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Project Id"
+     },
+     "overall": {
+      "type": "number",
+      "title": "Overall"
+     },
+     "band": {
+      "type": "string",
+      "title": "Band"
+     },
+     "components": {
+      "items": {
+       "$ref": "#/components/schemas/ScoreComponent"
+      },
+      "type": "array",
+      "title": "Components"
+     },
+     "weights": {
+      "additionalProperties": {
+       "type": "number"
+      },
+      "type": "object",
+      "title": "Weights"
+     },
+     "explanation": {
+      "type": "string",
+      "title": "Explanation"
+     },
+     "disclaimer": {
+      "type": "string",
+      "title": "Disclaimer"
+     },
+     "created_at": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Created At"
+     }
+    },
+    "type": "object",
+    "required": [
+     "overall",
+     "band",
+     "components",
+     "weights",
+     "explanation",
+     "disclaimer"
+    ],
+    "title": "ScoreOut"
+   },
+   "StageIn": {
+    "properties": {
+     "stage": {
+      "type": "string",
+      "enum": [
+       "idea",
+       "research",
+       "prototype",
+       "pilot",
+       "market_ready"
+      ],
+      "title": "Stage"
+     }
+    },
+    "type": "object",
+    "required": [
+     "stage"
+    ],
+    "title": "StageIn"
+   },
+   "SyncGrantsIn": {
+    "properties": {
+     "keywords": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Keywords"
+     },
+     "limit_per_keyword": {
+      "type": "integer",
+      "maximum": 25.0,
+      "minimum": 1.0,
+      "title": "Limit Per Keyword",
+      "default": 10
+     }
+    },
+    "type": "object",
+    "title": "SyncGrantsIn"
+   },
+   "SyncOpenAlexIn": {
+    "properties": {
+     "query": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 2,
+      "title": "Query"
+     },
+     "domain": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Domain"
+     },
+     "limit": {
+      "type": "integer",
+      "maximum": 100.0,
+      "minimum": 1.0,
+      "title": "Limit",
+      "default": 25
+     }
+    },
+    "type": "object",
+    "required": [
+     "query"
+    ],
+    "title": "SyncOpenAlexIn"
+   },
+   "TokenOut": {
+    "properties": {
+     "access_token": {
+      "type": "string",
+      "title": "Access Token"
+     },
+     "token_type": {
+      "type": "string",
+      "title": "Token Type",
+      "default": "bearer"
+     },
+     "expires_in": {
+      "type": "integer",
+      "title": "Expires In"
+     },
+     "user": {
+      "$ref": "#/components/schemas/UserOut"
+     }
+    },
+    "type": "object",
+    "required": [
+     "access_token",
+     "expires_in",
+     "user"
+    ],
+    "title": "TokenOut"
+   },
+   "UserOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "email": {
+      "type": "string",
+      "title": "Email"
+     },
+     "full_name": {
+      "type": "string",
+      "title": "Full Name"
+     },
+     "role": {
+      "type": "string",
+      "title": "Role"
+     },
+     "organization": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Organization"
+     },
+     "is_active": {
+      "type": "boolean",
+      "title": "Is Active"
+     },
+     "auth_provider": {
+      "type": "string",
+      "title": "Auth Provider",
+      "default": "local"
+     },
+     "created_at": {
+      "type": "string",
+      "title": "Created At"
+     },
+     "last_login_at": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Last Login At"
+     },
+     "notification_preferences": {
+      "$ref": "#/components/schemas/NotificationPreferences"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "email",
+     "full_name",
+     "role",
+     "is_active",
+     "created_at",
+     "notification_preferences"
+    ],
+    "title": "UserOut"
+   },
+   "UserUpdate": {
+    "properties": {
+     "full_name": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 200,
+        "minLength": 2
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Full Name"
+     },
+     "organization": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 255
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Organization"
+     },
+     "notification_preferences": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/NotificationPreferences"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "type": "object",
+    "title": "UserUpdate"
+   },
+   "ValidationError": {
+    "properties": {
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "type": "array",
+      "title": "Location"
+     },
+     "msg": {
+      "type": "string",
+      "title": "Message"
+     },
+     "type": {
+      "type": "string",
+      "title": "Error Type"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "ctx": {
+      "type": "object",
+      "title": "Context"
+     }
+    },
+    "type": "object",
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError"
+   }
+  },
+  "securitySchemes": {
+   "OAuth2PasswordBearer": {
+    "type": "oauth2",
+    "flows": {
+     "password": {
+      "scopes": {},
+      "tokenUrl": "/api/auth/token"
+     }
+    }
+   }
+  }
+ }
+}

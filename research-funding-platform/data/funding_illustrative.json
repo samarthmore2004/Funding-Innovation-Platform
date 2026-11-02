@@ -1,0 +1,1491 @@
+{
+ "notice": "ILLUSTRATIVE SYNTHETIC DATA. Organisations, programmes and amounts are invented for demonstration and are not real funding opportunities. Deadlines are offsets resolved when the database is seeded.",
+ "generator": "backend/scripts/generate_illustrative_data.py (seed 2026)",
+ "count": 49,
+ "records": [
+  {
+   "key": "illus-funding-001",
+   "title": "Early-Career Fellowship in Artificial Intelligence",
+   "organization": "Example National Research Council",
+   "funder_type": "research_council",
+   "description": "Two-year fellowships for early-career researchers working on data science, predictive model or related topics in artificial intelligence & machine learning. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "ai_ml"
+   ],
+   "keywords": [
+    "data science",
+    "predictive model"
+   ],
+   "eligibility_text": "Open to university, researcher, nonprofit applicants based in India. Early-career researchers only.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [
+    "early_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 173,
+   "opened_days_ago": 72,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-002",
+   "title": "Digital Health Industry-Academia Partnership Call",
+   "organization": "Example National Research Council",
+   "funder_type": "research_council",
+   "description": "Co-funded collaborative projects between universities and companies on health informatics and electronic health record; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "digital_health"
+   ],
+   "keywords": [
+    "health informatics",
+    "electronic health record"
+   ],
+   "eligibility_text": "Open to university, researcher, nonprofit applicants based in India.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 117,
+   "opened_days_ago": 58,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-003",
+   "title": "Early-Career Fellowship in Biotechnology",
+   "organization": "Example National Research Council",
+   "funder_type": "research_council",
+   "description": "Two-year fellowships for early-career researchers working on synthetic biology, cell therapy or related topics in biotechnology & genomics. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "biotech"
+   ],
+   "keywords": [
+    "synthetic biology",
+    "cell therapy"
+   ],
+   "eligibility_text": "Open to university, researcher, nonprofit applicants based in India. Early-career researchers only.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [
+    "early_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 152,
+   "opened_days_ago": 77,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-004",
+   "title": "Climate Industry-Academia Partnership Call",
+   "organization": "Example National Research Council",
+   "funder_type": "research_council",
+   "description": "Co-funded collaborative projects between universities and companies on climate adaptation and air quality; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "climate_tech"
+   ],
+   "keywords": [
+    "climate adaptation",
+    "air quality"
+   ],
+   "eligibility_text": "Open to university, researcher, nonprofit applicants based in India.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 82,
+   "opened_days_ago": 55,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-005",
+   "title": "Early-Career Fellowship in Quantum Computing",
+   "organization": "Example National Research Council",
+   "funder_type": "research_council",
+   "description": "Two-year fellowships for early-career researchers working on quantum communication, quantum key distribution or related topics in quantum computing & technologies. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "quantum"
+   ],
+   "keywords": [
+    "quantum communication",
+    "quantum key distribution"
+   ],
+   "eligibility_text": "Open to university, researcher, nonprofit applicants based in India. Early-career researchers only.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [
+    "early_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 138,
+   "opened_days_ago": 9,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-006",
+   "title": "Computer Vision Industry-Academia Partnership Call",
+   "organization": "Sample Science & Engineering Board",
+   "funder_type": "research_council",
+   "description": "Co-funded collaborative projects between universities and companies on image recognition and video analytics; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "computer_vision"
+   ],
+   "keywords": [
+    "image recognition",
+    "video analytics"
+   ],
+   "eligibility_text": "Open to university, researcher applicants based in India.",
+   "applicant_types": [
+    "university",
+    "researcher"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 54,
+   "opened_days_ago": 52,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-007",
+   "title": "Advanced Materials Frontier Research Grants",
+   "organization": "Sample Science & Engineering Board",
+   "funder_type": "research_council",
+   "description": "Supports ambitious, investigator-led research in advanced materials & nanotechnology, including coating and materials discovery. Proposals should articulate novelty, methodology and expected scientific impact. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "advanced_materials"
+   ],
+   "keywords": [
+    "coating",
+    "materials discovery"
+   ],
+   "eligibility_text": "Open to university, researcher applicants based in India.",
+   "applicant_types": [
+    "university",
+    "researcher"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 150000.0,
+   "max_amount": 600000.0,
+   "currency": "USD",
+   "deadline_in_days": null,
+   "opened_days_ago": 23,
+   "status": "rolling"
+  },
+  {
+   "key": "illus-funding-008",
+   "title": "Semiconductors Industry-Academia Partnership Call",
+   "organization": "Sample Science & Engineering Board",
+   "funder_type": "research_council",
+   "description": "Co-funded collaborative projects between universities and companies on integrated circuit and photonics; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "semiconductors"
+   ],
+   "keywords": [
+    "integrated circuit",
+    "photonics"
+   ],
+   "eligibility_text": "Open to university, researcher applicants based in India.",
+   "applicant_types": [
+    "university",
+    "researcher"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 194,
+   "opened_days_ago": 80,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-009",
+   "title": "Natural Language Processing Industry-Academia Partnership Call",
+   "organization": "Sample Science & Engineering Board",
+   "funder_type": "research_council",
+   "description": "Co-funded collaborative projects between universities and companies on sentiment analysis and information extraction; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "nlp"
+   ],
+   "keywords": [
+    "sentiment analysis",
+    "information extraction"
+   ],
+   "eligibility_text": "Open to university, researcher applicants based in India.",
+   "applicant_types": [
+    "university",
+    "researcher"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 173,
+   "opened_days_ago": 48,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-010",
+   "title": "Quantum Computing Scale-up Challenge",
+   "organization": "Example European Research Agency",
+   "funder_type": "international_agency",
+   "description": "Competitive challenge for teams with validated pilots in qubit seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "quantum"
+   ],
+   "keywords": [
+    "qubit",
+    "superconducting qubit"
+   ],
+   "eligibility_text": "Open to university, researcher, nonprofit applicants based in European Union.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "European Union"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 103,
+   "opened_days_ago": 57,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-011",
+   "title": "Clean Energy Scale-up Challenge",
+   "organization": "Example European Research Agency",
+   "funder_type": "international_agency",
+   "description": "Competitive challenge for teams with validated pilots in fuel cell seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "clean_energy"
+   ],
+   "keywords": [
+    "fuel cell",
+    "renewable energy"
+   ],
+   "eligibility_text": "Open to university, researcher, nonprofit applicants based in European Union.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "European Union"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 187,
+   "opened_days_ago": 73,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-012",
+   "title": "Early-Career Fellowship in Robotics",
+   "organization": "Example European Research Agency",
+   "funder_type": "international_agency",
+   "description": "Two-year fellowships for early-career researchers working on robotics, human-robot interaction or related topics in robotics & autonomous systems. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "robotics"
+   ],
+   "keywords": [
+    "robotics",
+    "human-robot interaction"
+   ],
+   "eligibility_text": "Open to university, researcher, nonprofit applicants based in European Union. Early-career researchers only.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "European Union"
+   ],
+   "career_stages": [
+    "early_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 103,
+   "opened_days_ago": 12,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-013",
+   "title": "Cybersecurity Frontier Research Grants",
+   "organization": "Example European Research Agency",
+   "funder_type": "international_agency",
+   "description": "Supports ambitious, investigator-led research in cybersecurity & privacy, including authentication and secure computation. Proposals should articulate novelty, methodology and expected scientific impact. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "cybersecurity"
+   ],
+   "keywords": [
+    "authentication",
+    "secure computation"
+   ],
+   "eligibility_text": "Open to university, researcher, nonprofit applicants based in European Union.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "European Union"
+   ],
+   "career_stages": [],
+   "min_amount": 150000.0,
+   "max_amount": 600000.0,
+   "currency": "USD",
+   "deadline_in_days": 194,
+   "opened_days_ago": 40,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-014",
+   "title": "Agritech Translational Innovation Awards",
+   "organization": "Illustrative Global Innovation Fund",
+   "funder_type": "innovation_fund",
+   "description": "Funds proof-of-concept and prototype development that moves soil research towards real-world deployment, with emphasis on irrigation and measurable outcomes. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "agritech"
+   ],
+   "keywords": [
+    "soil",
+    "irrigation"
+   ],
+   "eligibility_text": "Open to startup, enterprise, nonprofit applicants based in Global.",
+   "applicant_types": [
+    "startup",
+    "enterprise",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 50000.0,
+   "max_amount": 250000.0,
+   "currency": "USD",
+   "deadline_in_days": 110,
+   "opened_days_ago": 9,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-015",
+   "title": "Early-Career Fellowship in Climate",
+   "organization": "Illustrative Global Innovation Fund",
+   "funder_type": "innovation_fund",
+   "description": "Two-year fellowships for early-career researchers working on climate change, climate adaptation or related topics in climate & environmental technology. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "climate_tech"
+   ],
+   "keywords": [
+    "climate change",
+    "climate adaptation"
+   ],
+   "eligibility_text": "Open to startup, enterprise, nonprofit applicants based in Global. Early-career researchers only.",
+   "applicant_types": [
+    "startup",
+    "enterprise",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [
+    "early_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 5,
+   "opened_days_ago": 26,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-016",
+   "title": "Digital Health Translational Innovation Awards",
+   "organization": "Illustrative Global Innovation Fund",
+   "funder_type": "innovation_fund",
+   "description": "Funds proof-of-concept and prototype development that moves electronic health record research towards real-world deployment, with emphasis on health informatics and measurable outcomes. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "digital_health"
+   ],
+   "keywords": [
+    "electronic health record",
+    "health informatics"
+   ],
+   "eligibility_text": "Open to startup, enterprise, nonprofit applicants based in Global.",
+   "applicant_types": [
+    "startup",
+    "enterprise",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 50000.0,
+   "max_amount": 250000.0,
+   "currency": "USD",
+   "deadline_in_days": 40,
+   "opened_days_ago": 90,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-017",
+   "title": "Early-Career Fellowship in IoT",
+   "organization": "Illustrative Global Innovation Fund",
+   "funder_type": "innovation_fund",
+   "description": "Two-year fellowships for early-career researchers working on iot, edge computing or related topics in iot & edge computing. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "iot_edge"
+   ],
+   "keywords": [
+    "iot",
+    "edge computing"
+   ],
+   "eligibility_text": "Open to startup, enterprise, nonprofit applicants based in Global. Early-career researchers only.",
+   "applicant_types": [
+    "startup",
+    "enterprise",
+    "nonprofit"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [
+    "early_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 33,
+   "opened_days_ago": 6,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-018",
+   "title": "Artificial Intelligence Scale-up Challenge",
+   "organization": "Sample Deep-Tech Accelerator",
+   "funder_type": "startup_accelerator",
+   "description": "Competitive challenge for teams with validated pilots in foundation model seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "ai_ml"
+   ],
+   "keywords": [
+    "foundation model",
+    "reinforcement learning"
+   ],
+   "eligibility_text": "Open to startup applicants based in Global.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 173,
+   "opened_days_ago": 53,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-019",
+   "title": "Seed Programme for Robotics Startups",
+   "organization": "Sample Deep-Tech Accelerator",
+   "funder_type": "startup_accelerator",
+   "description": "Equity-free seed support, mentoring and cloud credits for early-stage ventures building products in robotics & autonomous systems, such as robotics or unmanned aerial vehicle. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "robotics"
+   ],
+   "keywords": [
+    "robotics",
+    "unmanned aerial vehicle"
+   ],
+   "eligibility_text": "Open to startup applicants based in Global.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 20000.0,
+   "max_amount": 100000.0,
+   "currency": "USD",
+   "deadline_in_days": 159,
+   "opened_days_ago": 56,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-020",
+   "title": "Semiconductors Scale-up Challenge",
+   "organization": "Sample Deep-Tech Accelerator",
+   "funder_type": "startup_accelerator",
+   "description": "Competitive challenge for teams with validated pilots in semiconductor seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "semiconductors"
+   ],
+   "keywords": [
+    "semiconductor",
+    "photonics"
+   ],
+   "eligibility_text": "Open to startup applicants based in Global.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 180,
+   "opened_days_ago": 58,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-021",
+   "title": "Quantum Computing Scale-up Challenge",
+   "organization": "Sample Deep-Tech Accelerator",
+   "funder_type": "startup_accelerator",
+   "description": "Competitive challenge for teams with validated pilots in post-quantum cryptography seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "quantum"
+   ],
+   "keywords": [
+    "post-quantum cryptography",
+    "quantum simulation"
+   ],
+   "eligibility_text": "Open to startup applicants based in Global.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 173,
+   "opened_days_ago": 38,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-022",
+   "title": "Seed Programme for Clean Energy Startups",
+   "organization": "Example Climate Venture Studio",
+   "funder_type": "venture_program",
+   "description": "Equity-free seed support, mentoring and cloud credits for early-stage ventures building products in clean energy & energy storage, such as energy efficiency or hydrogen. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "clean_energy"
+   ],
+   "keywords": [
+    "energy efficiency",
+    "hydrogen"
+   ],
+   "eligibility_text": "Open to startup applicants based in Global.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 20000.0,
+   "max_amount": 100000.0,
+   "currency": "USD",
+   "deadline_in_days": 82,
+   "opened_days_ago": 63,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-023",
+   "title": "Climate Scale-up Challenge",
+   "organization": "Example Climate Venture Studio",
+   "funder_type": "venture_program",
+   "description": "Competitive challenge for teams with validated pilots in environmental monitoring seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "climate_tech"
+   ],
+   "keywords": [
+    "environmental monitoring",
+    "water treatment"
+   ],
+   "eligibility_text": "Open to startup applicants based in Global.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 47,
+   "opened_days_ago": 23,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-024",
+   "title": "Advanced Materials Scale-up Challenge",
+   "organization": "Example Climate Venture Studio",
+   "funder_type": "venture_program",
+   "description": "Competitive challenge for teams with validated pilots in metamaterial seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "advanced_materials"
+   ],
+   "keywords": [
+    "metamaterial",
+    "thin film"
+   ],
+   "eligibility_text": "Open to startup applicants based in Global.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 103,
+   "opened_days_ago": 60,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-025",
+   "title": "Agritech Scale-up Challenge",
+   "organization": "Example Climate Venture Studio",
+   "funder_type": "venture_program",
+   "description": "Competitive challenge for teams with validated pilots in smart farming seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "agritech"
+   ],
+   "keywords": [
+    "smart farming",
+    "food security"
+   ],
+   "eligibility_text": "Open to startup applicants based in Global.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 180,
+   "opened_days_ago": 42,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-026",
+   "title": "Early-Career Fellowship in Digital Health",
+   "organization": "Demo Health Innovation Challenge",
+   "funder_type": "innovation_fund",
+   "description": "Two-year fellowships for early-career researchers working on remote patient monitoring, diagnostics or related topics in digital health & medical devices. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "digital_health"
+   ],
+   "keywords": [
+    "remote patient monitoring",
+    "diagnostics"
+   ],
+   "eligibility_text": "Open to startup, nonprofit, university applicants based in India, Kenya, Bangladesh, Indonesia. Early-career researchers only.",
+   "applicant_types": [
+    "startup",
+    "nonprofit",
+    "university"
+   ],
+   "eligible_countries": [
+    "India",
+    "Kenya",
+    "Bangladesh",
+    "Indonesia"
+   ],
+   "career_stages": [
+    "early_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": null,
+   "opened_days_ago": 76,
+   "status": "rolling"
+  },
+  {
+   "key": "illus-funding-027",
+   "title": "Early-Career Fellowship in Biotechnology",
+   "organization": "Demo Health Innovation Challenge",
+   "funder_type": "innovation_fund",
+   "description": "Two-year fellowships for early-career researchers working on crispr, protein engineering or related topics in biotechnology & genomics. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "biotech"
+   ],
+   "keywords": [
+    "crispr",
+    "protein engineering"
+   ],
+   "eligibility_text": "Open to startup, nonprofit, university applicants based in India, Kenya, Bangladesh, Indonesia. Early-career researchers only.",
+   "applicant_types": [
+    "startup",
+    "nonprofit",
+    "university"
+   ],
+   "eligible_countries": [
+    "India",
+    "Kenya",
+    "Bangladesh",
+    "Indonesia"
+   ],
+   "career_stages": [
+    "early_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 187,
+   "opened_days_ago": 81,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-028",
+   "title": "Seed Programme for Natural Language Processing Startups",
+   "organization": "Demo Health Innovation Challenge",
+   "funder_type": "innovation_fund",
+   "description": "Equity-free seed support, mentoring and cloud credits for early-stage ventures building products in natural language processing, such as chatbot or text mining. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "nlp"
+   ],
+   "keywords": [
+    "chatbot",
+    "text mining"
+   ],
+   "eligibility_text": "Open to startup, nonprofit, university applicants based in India, Kenya, Bangladesh, Indonesia.",
+   "applicant_types": [
+    "startup",
+    "nonprofit",
+    "university"
+   ],
+   "eligible_countries": [
+    "India",
+    "Kenya",
+    "Bangladesh",
+    "Indonesia"
+   ],
+   "career_stages": [],
+   "min_amount": 20000.0,
+   "max_amount": 100000.0,
+   "currency": "USD",
+   "deadline_in_days": 68,
+   "opened_days_ago": 39,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-029",
+   "title": "Early-Career Fellowship in Computer Vision",
+   "organization": "Demo Health Innovation Challenge",
+   "funder_type": "innovation_fund",
+   "description": "Two-year fellowships for early-career researchers working on computer vision, 3d reconstruction or related topics in computer vision. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "computer_vision"
+   ],
+   "keywords": [
+    "computer vision",
+    "3d reconstruction"
+   ],
+   "eligibility_text": "Open to startup, nonprofit, university applicants based in India, Kenya, Bangladesh, Indonesia. Early-career researchers only.",
+   "applicant_types": [
+    "startup",
+    "nonprofit",
+    "university"
+   ],
+   "eligible_countries": [
+    "India",
+    "Kenya",
+    "Bangladesh",
+    "Indonesia"
+   ],
+   "career_stages": [
+    "early_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 68,
+   "opened_days_ago": 18,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-030",
+   "title": "Cybersecurity Frontier Research Grants",
+   "organization": "Example UK Research Programme",
+   "funder_type": "research_council",
+   "description": "Supports ambitious, investigator-led research in cybersecurity & privacy, including secure computation and authentication. Proposals should articulate novelty, methodology and expected scientific impact. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "cybersecurity"
+   ],
+   "keywords": [
+    "secure computation",
+    "authentication"
+   ],
+   "eligibility_text": "Open to university, researcher, enterprise applicants based in United Kingdom.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "enterprise"
+   ],
+   "eligible_countries": [
+    "United Kingdom"
+   ],
+   "career_stages": [],
+   "min_amount": 150000.0,
+   "max_amount": 600000.0,
+   "currency": "USD",
+   "deadline_in_days": 75,
+   "opened_days_ago": 23,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-031",
+   "title": "Blockchain Industry-Academia Partnership Call",
+   "organization": "Example UK Research Programme",
+   "funder_type": "research_council",
+   "description": "Co-funded collaborative projects between universities and companies on blockchain and distributed ledger; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "blockchain_fintech"
+   ],
+   "keywords": [
+    "blockchain",
+    "distributed ledger"
+   ],
+   "eligibility_text": "Open to university, researcher, enterprise applicants based in United Kingdom.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "enterprise"
+   ],
+   "eligible_countries": [
+    "United Kingdom"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 47,
+   "opened_days_ago": 60,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-032",
+   "title": "Natural Language Processing Frontier Research Grants",
+   "organization": "Example UK Research Programme",
+   "funder_type": "research_council",
+   "description": "Supports ambitious, investigator-led research in natural language processing, including sentiment analysis and large language model. Proposals should articulate novelty, methodology and expected scientific impact. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "nlp"
+   ],
+   "keywords": [
+    "sentiment analysis",
+    "large language model"
+   ],
+   "eligibility_text": "Open to university, researcher, enterprise applicants based in United Kingdom.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "enterprise"
+   ],
+   "eligible_countries": [
+    "United Kingdom"
+   ],
+   "career_stages": [],
+   "min_amount": 150000.0,
+   "max_amount": 600000.0,
+   "currency": "USD",
+   "deadline_in_days": 75,
+   "opened_days_ago": 89,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-033",
+   "title": "Robotics Industry-Academia Partnership Call",
+   "organization": "Example UK Research Programme",
+   "funder_type": "research_council",
+   "description": "Co-funded collaborative projects between universities and companies on manipulation and robotics; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "robotics"
+   ],
+   "keywords": [
+    "manipulation",
+    "robotics"
+   ],
+   "eligibility_text": "Open to university, researcher, enterprise applicants based in United Kingdom.",
+   "applicant_types": [
+    "university",
+    "researcher",
+    "enterprise"
+   ],
+   "eligible_countries": [
+    "United Kingdom"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 138,
+   "opened_days_ago": 88,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-034",
+   "title": "Seed Programme for IoT Startups",
+   "organization": "Sample Asia-Pacific Tech Fund",
+   "funder_type": "venture_program",
+   "description": "Equity-free seed support, mentoring and cloud credits for early-stage ventures building products in iot & edge computing, such as 5g or fog computing. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "iot_edge"
+   ],
+   "keywords": [
+    "5g",
+    "fog computing"
+   ],
+   "eligibility_text": "Open to startup applicants based in Singapore, India, Australia, Japan.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Singapore",
+    "India",
+    "Australia",
+    "Japan"
+   ],
+   "career_stages": [],
+   "min_amount": 20000.0,
+   "max_amount": 100000.0,
+   "currency": "USD",
+   "deadline_in_days": 194,
+   "opened_days_ago": 38,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-035",
+   "title": "Seed Programme for Blockchain Startups",
+   "organization": "Sample Asia-Pacific Tech Fund",
+   "funder_type": "venture_program",
+   "description": "Equity-free seed support, mentoring and cloud credits for early-stage ventures building products in blockchain & fintech, such as decentralized finance or digital payment. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "blockchain_fintech"
+   ],
+   "keywords": [
+    "decentralized finance",
+    "digital payment"
+   ],
+   "eligibility_text": "Open to startup applicants based in Singapore, India, Australia, Japan.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Singapore",
+    "India",
+    "Australia",
+    "Japan"
+   ],
+   "career_stages": [],
+   "min_amount": 20000.0,
+   "max_amount": 100000.0,
+   "currency": "USD",
+   "deadline_in_days": 26,
+   "opened_days_ago": 81,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-036",
+   "title": "Cybersecurity Scale-up Challenge",
+   "organization": "Sample Asia-Pacific Tech Fund",
+   "funder_type": "venture_program",
+   "description": "Competitive challenge for teams with validated pilots in authentication seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "cybersecurity"
+   ],
+   "keywords": [
+    "authentication",
+    "malware"
+   ],
+   "eligibility_text": "Open to startup applicants based in Singapore, India, Australia, Japan.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Singapore",
+    "India",
+    "Australia",
+    "Japan"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 152,
+   "opened_days_ago": 38,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-037",
+   "title": "Seed Programme for Artificial Intelligence Startups",
+   "organization": "Sample Asia-Pacific Tech Fund",
+   "funder_type": "venture_program",
+   "description": "Equity-free seed support, mentoring and cloud credits for early-stage ventures building products in artificial intelligence & machine learning, such as federated learning or neural network. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "ai_ml"
+   ],
+   "keywords": [
+    "federated learning",
+    "neural network"
+   ],
+   "eligibility_text": "Open to startup applicants based in Singapore, India, Australia, Japan.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "Singapore",
+    "India",
+    "Australia",
+    "Japan"
+   ],
+   "career_stages": [],
+   "min_amount": 20000.0,
+   "max_amount": 100000.0,
+   "currency": "USD",
+   "deadline_in_days": 75,
+   "opened_days_ago": 34,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-038",
+   "title": "Agritech Industry-Academia Partnership Call",
+   "organization": "Illustrative Development Agency",
+   "funder_type": "international_agency",
+   "description": "Co-funded collaborative projects between universities and companies on smart farming and precision agriculture; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "agritech"
+   ],
+   "keywords": [
+    "smart farming",
+    "precision agriculture"
+   ],
+   "eligibility_text": "Open to nonprofit, university, government applicants based in Global.",
+   "applicant_types": [
+    "nonprofit",
+    "university",
+    "government"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 5,
+   "opened_days_ago": 52,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-039",
+   "title": "Clean Energy Translational Innovation Awards",
+   "organization": "Illustrative Development Agency",
+   "funder_type": "international_agency",
+   "description": "Funds proof-of-concept and prototype development that moves hydrogen research towards real-world deployment, with emphasis on fuel cell and measurable outcomes. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "clean_energy"
+   ],
+   "keywords": [
+    "hydrogen",
+    "fuel cell"
+   ],
+   "eligibility_text": "Open to nonprofit, university, government applicants based in Global.",
+   "applicant_types": [
+    "nonprofit",
+    "university",
+    "government"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 50000.0,
+   "max_amount": 250000.0,
+   "currency": "USD",
+   "deadline_in_days": 26,
+   "opened_days_ago": 76,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-040",
+   "title": "Seed Programme for Digital Health Startups",
+   "organization": "Illustrative Development Agency",
+   "funder_type": "international_agency",
+   "description": "Equity-free seed support, mentoring and cloud credits for early-stage ventures building products in digital health & medical devices, such as diagnostics or mobile health. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "digital_health"
+   ],
+   "keywords": [
+    "diagnostics",
+    "mobile health"
+   ],
+   "eligibility_text": "Open to nonprofit, university, government applicants based in Global.",
+   "applicant_types": [
+    "nonprofit",
+    "university",
+    "government"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 20000.0,
+   "max_amount": 100000.0,
+   "currency": "USD",
+   "deadline_in_days": 159,
+   "opened_days_ago": 33,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-041",
+   "title": "Climate Translational Innovation Awards",
+   "organization": "Illustrative Development Agency",
+   "funder_type": "international_agency",
+   "description": "Funds proof-of-concept and prototype development that moves climate change research towards real-world deployment, with emphasis on circular economy and measurable outcomes. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "climate_tech"
+   ],
+   "keywords": [
+    "climate change",
+    "circular economy"
+   ],
+   "eligibility_text": "Open to nonprofit, university, government applicants based in Global.",
+   "applicant_types": [
+    "nonprofit",
+    "university",
+    "government"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [],
+   "min_amount": 50000.0,
+   "max_amount": 250000.0,
+   "currency": "USD",
+   "deadline_in_days": 124,
+   "opened_days_ago": 29,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-042",
+   "title": "IoT Scale-up Challenge",
+   "organization": "Example State Startup Mission",
+   "funder_type": "government_grant",
+   "description": "Competitive challenge for teams with validated pilots in embedded system seeking to scale; winners receive grant funding and investor introductions. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "iot_edge"
+   ],
+   "keywords": [
+    "embedded system",
+    "iot"
+   ],
+   "eligibility_text": "Open to startup applicants based in India.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 750000.0,
+   "currency": "USD",
+   "deadline_in_days": 61,
+   "opened_days_ago": 27,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-043",
+   "title": "Seed Programme for Agritech Startups",
+   "organization": "Example State Startup Mission",
+   "funder_type": "government_grant",
+   "description": "Equity-free seed support, mentoring and cloud credits for early-stage ventures building products in agritech & food systems, such as soil or smart farming. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "agritech"
+   ],
+   "keywords": [
+    "soil",
+    "smart farming"
+   ],
+   "eligibility_text": "Open to startup applicants based in India.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 20000.0,
+   "max_amount": 100000.0,
+   "currency": "USD",
+   "deadline_in_days": 117,
+   "opened_days_ago": 38,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-044",
+   "title": "Seed Programme for Blockchain Startups",
+   "organization": "Example State Startup Mission",
+   "funder_type": "government_grant",
+   "description": "Equity-free seed support, mentoring and cloud credits for early-stage ventures building products in blockchain & fintech, such as blockchain or digital payment. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "blockchain_fintech"
+   ],
+   "keywords": [
+    "blockchain",
+    "digital payment"
+   ],
+   "eligibility_text": "Open to startup applicants based in India.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 20000.0,
+   "max_amount": 100000.0,
+   "currency": "USD",
+   "deadline_in_days": 12,
+   "opened_days_ago": 25,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-045",
+   "title": "Computer Vision Industry-Academia Partnership Call",
+   "organization": "Example State Startup Mission",
+   "funder_type": "government_grant",
+   "description": "Co-funded collaborative projects between universities and companies on face recognition and image segmentation; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "computer_vision"
+   ],
+   "keywords": [
+    "face recognition",
+    "image segmentation"
+   ],
+   "eligibility_text": "Open to startup applicants based in India.",
+   "applicant_types": [
+    "startup"
+   ],
+   "eligible_countries": [
+    "India"
+   ],
+   "career_stages": [],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 26,
+   "opened_days_ago": 39,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-046",
+   "title": "Biotechnology Industry-Academia Partnership Call",
+   "organization": "Sample Women in STEM Fellowship Trust",
+   "funder_type": "research_council",
+   "description": "Co-funded collaborative projects between universities and companies on cell therapy and protein engineering; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "biotech"
+   ],
+   "keywords": [
+    "cell therapy",
+    "protein engineering"
+   ],
+   "eligibility_text": "Open to researcher applicants based in Global.",
+   "applicant_types": [
+    "researcher"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [
+    "student",
+    "early_career",
+    "mid_career"
+   ],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 75,
+   "opened_days_ago": 79,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-047",
+   "title": "Early-Career Fellowship in Advanced Materials",
+   "organization": "Sample Women in STEM Fellowship Trust",
+   "funder_type": "research_council",
+   "description": "Two-year fellowships for early-career researchers working on nanotechnology, metamaterial or related topics in advanced materials & nanotechnology. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "advanced_materials"
+   ],
+   "keywords": [
+    "nanotechnology",
+    "metamaterial"
+   ],
+   "eligibility_text": "Open to researcher applicants based in Global.",
+   "applicant_types": [
+    "researcher"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [
+    "student",
+    "early_career",
+    "mid_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 96,
+   "opened_days_ago": 39,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-048",
+   "title": "Early-Career Fellowship in Semiconductors",
+   "organization": "Sample Women in STEM Fellowship Trust",
+   "funder_type": "research_council",
+   "description": "Two-year fellowships for early-career researchers working on laser, photonics or related topics in semiconductors & photonics. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "semiconductors"
+   ],
+   "keywords": [
+    "laser",
+    "photonics"
+   ],
+   "eligibility_text": "Open to researcher applicants based in Global.",
+   "applicant_types": [
+    "researcher"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [
+    "student",
+    "early_career",
+    "mid_career"
+   ],
+   "min_amount": 40000.0,
+   "max_amount": 120000.0,
+   "currency": "USD",
+   "deadline_in_days": 26,
+   "opened_days_ago": 87,
+   "status": "open"
+  },
+  {
+   "key": "illus-funding-049",
+   "title": "Artificial Intelligence Industry-Academia Partnership Call",
+   "organization": "Sample Women in STEM Fellowship Trust",
+   "funder_type": "research_council",
+   "description": "Co-funded collaborative projects between universities and companies on deep learning and explainable ai; at least one industry partner is required. (Illustrative sample record generated for demonstration \u2014 not a real funding call.)",
+   "domains": [
+    "ai_ml"
+   ],
+   "keywords": [
+    "deep learning",
+    "explainable ai"
+   ],
+   "eligibility_text": "Open to researcher applicants based in Global.",
+   "applicant_types": [
+    "researcher"
+   ],
+   "eligible_countries": [
+    "Global"
+   ],
+   "career_stages": [
+    "student",
+    "early_career",
+    "mid_career"
+   ],
+   "min_amount": 100000.0,
+   "max_amount": 500000.0,
+   "currency": "USD",
+   "deadline_in_days": 33,
+   "opened_days_ago": 57,
+   "status": "open"
+  }
+ ]
+}
